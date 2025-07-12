@@ -1,0 +1,84 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: #32cd32;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+}
+
+#monitor-container {
+  width: 90vw;
+  max-width: 900px;
+  aspect-ratio: 4 / 3;
+  background-color: #000;
+  border: 20px solid #333;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(100, 255, 100, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+#terminal {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#status-bar {
+  border-bottom: 1px solid #32cd32;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+  font-size: 18px;
+  color: #fff;
+}
+#status-heroi { color: #5f9ea0; }
+
+#terminal-output {
+  flex-grow: 1;
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+#terminal-output::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+#command-line {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.prompt {
+  margin-right: 8px;
+}
+
+#command-input {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  width: 100%;
+  outline: none;
+  caret-color: #32cd32;
+}
+
+/* Classes de Cores Dinâmicas */
+:host ::ng-deep .log-heroi { color: #5f9ea0; }
+:host ::ng-deep .log-guia { color: #5f9ea0; }
+:host ::ng-deep .log-agente { color: #dc143c; }
+:host ::ng-deep .log-positivo { color: #00ffff; }
+:host ::ng-deep .log-negativo { color: #ff4500; }
+:host ::ng-deep .log-sistema { color: #ffffff; }
+:host ::ng-deep .npc-low-faith { color: #dc143c; }
+:host ::ng-deep .npc-mid-faith { color: #ffd700; }
+:host ::ng-deep .npc-high-faith { color: #32cd32; }

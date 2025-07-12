@@ -1,0 +1,45 @@
+<div id="screensaver-container">
+  <!-- Scanline Overlay -->
+  <div class="scanline"></div>
+
+  <!-- Contentor que se move -->
+  <div #mover id="medal-mover">
+    <!-- Lado 1 da Medalha (São Bento) -->
+    <div class="medal-face" [class.active]="showFront">
+      <pre class="medal-art">
+   +========================================+
+   |  EIVS IN OBITVNRO PRE SENTIA MVNIAMVR  |
+   |                                        |
+   |              .'`.                      |
+   |             /./|\ \                    |
+   |            ( (o o) )  +--CRUX          |
+   |             |  `  |  | S-PATRIS        |
+   |            ,' --- `.[--BENEDICTI       |
+   |           / |     | \                  |
+   |          /  |     |  \                 |
+   |         `---'     `---`                |
+   |                                        |
+   +========================================+
+      </pre>
+    </div>
+
+    <!-- Lado 2 da Medalha (Cruz) -->
+    <div class="medal-face" [class.active]="!showFront">
+      <pre class="medal-art">
+   +========================================+
+   |             V.R.S.N.S.M.V.             |
+   |                                        |
+   |                                        |
+   |               C   S   P                |
+   |                   S                    |
+   |             N..D..S..M..D              |
+   |                   M                    |
+   |               S   L   B                |
+   |                                        |
+   |                                        |
+   |             S.M.Q.L.I.V.B.             |
+   +========================================+
+      </pre>
+    </div>
+  </div>
+</div>

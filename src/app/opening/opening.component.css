@@ -1,0 +1,83 @@
+#opening-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  color: #32cd32;
+  font-family: 'VT323', monospace;
+  z-index: 200;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animação de ligar o monitor */
+.power-on-glow {
+  width: 1px;
+  height: 1px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 10px white, 0 0 30px 20px #32cd32;
+  animation: powerOn 2s ease-out forwards;
+}
+
+@keyframes powerOn {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) perspective(500px) scaleZ(5000);
+    opacity: 0;
+  }
+}
+
+/* Animação da Scanline (igual à do screensaver) */
+.scanline {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0) 100%);
+  animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+  0% { top: -50%; }
+  100% { top: 100%; }
+}
+
+/* Texto introdutório */
+#intro-text-container {
+  padding: 20px;
+  font-size: 22px;
+  text-align: center;
+}
+
+#intro-text-container p {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2s steps(40, end) forwards;
+}
+
+#intro-text-container p:last-child {
+  border-right: 2px solid #32cd32; /* Adiciona a barra vertical apenas na última linha */
+  animation: typing 2s steps(40, end) forwards, blink-caret .75s step-end infinite; /* Mantém a animação de piscar apenas na última */
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #32cd32; }
+}

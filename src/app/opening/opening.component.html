@@ -1,0 +1,10 @@
+<div id="opening-container">
+  <div class="power-on-glow" *ngIf="animationStep === 'power-on'"></div>
+
+  <ng-container *ngIf="animationStep === 'scanline' || animationStep === 'typing'">
+    <div class="scanline"></div>
+    <div id="intro-text-container">
+      <p *ngFor="let line of displayedText" class="typed-line">{{ line }}</p>
+    </div>
+  </ng-container>
+</div>

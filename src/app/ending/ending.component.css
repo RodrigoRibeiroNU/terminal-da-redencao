@@ -1,0 +1,55 @@
+#ending-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%);
+  color: #32cd32;
+  font-family: 'VT323', monospace;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ending-content {
+  max-width: 80%;
+  animation: fadeIn 3s ease-in;
+}
+
+h1 {
+  font-size: 48px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  margin-bottom: 30px;
+}
+
+.final-message {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.restart-button {
+  background-color: transparent;
+  border: 2px solid #32cd32;
+  color: #32cd32;
+  padding: 15px 30px;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.restart-button:hover {
+  background-color: #32cd32;
+  color: #000;
+  box-shadow: 0 0 20px #32cd32;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

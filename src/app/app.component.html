@@ -1,0 +1,40 @@
+<div id="monitor-container" *ngIf="gameState$ | async as gameState">
+  
+  <app-opening *ngIf="!gameState.opening_complete" (openingComplete)="onOpeningComplete()"></app-opening>
+
+  <ng-container *ngIf="gameState.opening_complete && !gameState.game_over">
+    <app-screensaver *ngIf="isScreensaverActive$ | async"></app-screensaver>
+    <div id="terminal" (click)="focusInput()" [hidden]="isScreensaverActive$ | async">
+      <div id="status-bar" *ngIf="gameState.nome_jogador_global && gameState.nome_jogador_global !== 'PENDING'">
+        <div id="status-heroi">
+          Usuário: <span id="player-name">{{ getPlayerDisplayName() }}</span>
+          (Fé: <span id="player-faith">{{ gameState.heroi_fe_percent.toFixed(0) }}</span>%)
+        </div>
+        <div id="status-objetivo">Objetivo: <span id="current-objective">{{ getObjetivoAtual() }}</span></div>
+        <div id="status-pistas">Pistas: <span id="pistas-count">{{ gameState.pistas.length }}</span></div>
+      </div>
+
+      <div #terminalOutput id="terminal-output">
+        <p *ngFor="let line of terminalLog$ | async" [innerHTML]="line.text" [ngClass]="line.className"></p>
+      </div>
+
+      <div id="command-line">
+        <span class="prompt">{{ promptText }}</span>
+        <input
+          #commandInputElement
+          type="text"
+          id="command-input"
+          autocomplete="off"
+          [(ngModel)]="command"
+          (keydown.enter)="handleCommand()"
+          (keydown.arrowUp)="navigateHistory('up')"
+          (keydown.arrowDown)="navigateHistory('down')"
+        />
+      </div>
+    </div>
+  </ng-container>
+
+  <app-ending *ngIf="gameState.opening_complete && gameState.game_over"></app-ending>
+
+  <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)" accept=".json">
+</div>

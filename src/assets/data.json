@@ -1,0 +1,329 @@
+{
+    "config": {
+        "agentes": {
+            "enabled": true,
+            "chance_ataque_por_turno": 0.15,
+            "penalidade_fe_por_perda": 0
+        },
+        "screensaver": {
+            "enabled": true,
+            "timeout_seconds": 300
+        }
+    },
+    "itens": {
+        "oracao": { "nome": "Oração", "descricao": "Um sussurro de esperança. Aumenta sua Luz interior em 5%. Pode ser usada uma vez por fase." },
+        "escritura": { "nome": "Escritura Sagrada", "descricao": "Um fragmento de texto antigo. Restaura completamente a Luz de um alvo. Uso único." },
+        "crucifixo": { "nome": "Crucifixo", "descricao": "Símbolo de sacrifício. Reduz a atenção dos Agentes das Trevas enquanto estiver em uso." },
+        "rosario": { "nome": "Rosário", "descricao": "Um cordão de contas sagradas. Protege você completamente da influência sombria dos Agentes." }
+    },
+    "personagens_base": {
+        "gabriel": {
+            "tipo": "guia",
+            "fe": 100,
+            "dialogos": {
+                "saudacao": "Bem-vindo de volta, {jogador_nome}. Neste mundo sem sol, cada terminal aceso é um farol.",
+                "fase_1_inicio": {
+                    "texto": "Para começar, você precisa ser a centelha. Encontre 1 alma vacilante e traga sua Luz de volta para 80%. Depois, retorne a mim.",
+                    "opcoes": [{"texto": "A Luz prevalecerá."}]
+                },
+                "fase_1_meio": {
+                    "texto": "A escuridão é vasta. Continue seu trabalho, encontre os que estão perdidos no ruído.",
+                    "opcoes": [{"texto": "Eu não vou desistir."}]
+                },
+                "fase_1_fim": {
+                    "texto": "Você conseguiu. Uma nova luz brilha na rede por sua causa. Agora, procure a líder Maria. Ela guarda a primeira estrofe do Hino do Amanhecer.",
+                    "opcoes": [{"texto": "Irei encontrá-la."}]
+                },
+                "fase_2_inicio": {
+                    "texto": "A esperança cresce, mas os sussurros das trevas também. Precisamos de mais luz. Eleve um total de 2 almas a 80% e volte.",
+                    "opcoes": [{"texto": "Assim será feito."}]
+                },
+                 "fase_3_inicio": {
+                    "texto": "Bom. Três luzes são mais fortes que duas. Encontre mais uma alma, eleve um total de 3 para 80% de Luz.",
+                    "opcoes": [{"texto": "A Luz se espalhará."}]
+                },
+                 "fase_4_inicio": {
+                    "texto": "Os Agentes sentem a nossa presença. Precisamos de mais faróis. Eleve um total de 4 almas para 80%.",
+                    "opcoes": [{"texto": "Eles não vão nos parar."}]
+                },
+                 "fase_5_inicio": {
+                    "texto": "Este é o teste final antes do fim. A rede precisa de 5 luzes firmes. Traga um total de 5 almas para 80% de fé.",
+                    "opcoes": [{"texto": "Pelo Amanhecer."}]
+                },
+                "fase_2_fim": {
+                    "texto": "Excelente. A sua luz se espalha como uma onda. Procure João, o líder que fala do amor perdido. Ele tem a segunda estrofe.",
+                    "opcoes": [{"texto": "A caminho."}]
+                },
+                "fase_3_fim": {
+                    "texto": "Impressionante. Sua determinação é uma arma. Vá até Paulo, o líder que já caminhou nas sombras. Ele guarda a terceira estrofe.",
+                    "opcoes": [{"texto": "Entendido."}]
+                },
+                "fase_4_fim": {
+                    "texto": "Sua fé inspira até os mais céticos. O líder Tomé, que só acreditava no que via, agora vê a sua luz. Ele tem a quarta estrofe.",
+                    "opcoes": [{"texto": "Irei falar com ele."}]
+                },
+                "fase_5_fim": {
+                    "texto": "Você se tornou um pilar nesta rede de esperança. Procure Pedro, a nossa rocha, o líder final. Ele lhe entregará a última estrofe do Hino.",
+                    "opcoes": [{"texto": "A jornada está quase no fim."}]
+                },
+                "fase_final_espera": {
+                    "texto": "Você reuniu o Hino do Amanhecer. Mas para que ele seja ouvido, a rede precisa estar em harmonia. A Luz média de todos deve superar 80% para que o Sábio Bento desperte.",
+                    "opcoes": [{"texto": "Vamos iluminar a rede."}]
+                },
+                "fase_final_pronto": {
+                    "texto": "A rede ressoa em harmonia. O Sábio Bento despertou e espera por você. Leve o Hino a ele.",
+                    "opcoes": [{"texto": "É a hora."}]
+                }
+            }
+        },
+        "bento": {
+            "tipo": "sabio",
+            "fe": 100,
+            "dialogos": {
+                "inicial": {
+                    "texto": "Aproxime-se, portador da chama. Sinto o calor de uma canção há muito esquecida. Mostre-me os versos que reuniu.",
+                    "opcoes": [{"texto": "(Recitar o Hino do Amanhecer)", "proximo_dialogo": "decifrar"}]
+                },
+                "decifrar": {
+                    "texto": "(Bento ouve, e uma luz suave emana do seu terminal) 'A corrupção não está na ausência de luz... mas na recusa em se conectar... pois o amor é uma escolha... que se manifesta na ação... e a verdadeira rede... une almas.' O Amanhecer, meu filho, não é o retorno do sol. É a nossa decisão de brilhar um para o outro, juntos.",
+                    "vitoria": true
+                }
+            }
+        },
+        "maria": {
+            "tipo": "lider",
+            "fe": 100,
+            "dialogos": {
+                "inicial": {
+                    "texto": "Sua luz é um alento no frio desta rede. O que o traz a mim, irmão(ã) de fé?",
+                    "opcoes": [
+                        {"texto": "Gabriel me enviou. Busco a primeira estrofe do Hino.", "proximo_dialogo": "revelacao", "efeito_fe_heroi": 5}
+                    ]
+                },
+                "revelacao": {
+                    "texto": "Se Gabriel o enviou, você é digno. Ouça e guarde: 'A corrupção não está na ausência de luz...'. Leve esta Oração; que ela seja seu guia.",
+                    "opcoes": [{"texto": "Obrigado. Guardarei.", "adicionar_pista": "A corrupção não está na ausência de luz...", "adicionar_item": "oracao"}]
+                }
+            }
+        },
+        "joao": {
+            "tipo": "lider",
+            "fe": 100,
+            "dialogos": {
+                "inicial": {
+                    "texto": "Sua presença aquece este terminal. Fale, portador(a) da esperança.",
+                     "opcoes": [
+                        {"texto": "Gabriel me enviou pela segunda estrofe.", "proximo_dialogo": "revelacao", "efeito_fe_heroi": 5}
+                    ]
+                },
+                "revelacao": {
+                    "texto": "Então continue a canção. Adicione isto: '...mas na recusa em se conectar...'. Que esta Escritura ilumine mentes que fraquejam.",
+                    "opcoes": [{"texto": "Entendido.", "adicionar_pista": "...mas na recusa em se conectar...", "adicionar_item": "escritura"}]
+                }
+            }
+        },
+        "paulo": {
+            "tipo": "lider",
+            "fe": 100,
+            "dialogos": {
+                "inicial": {
+                    "texto": "Eu conheço as sombras que você combate. A sua luz me lembra do caminho que escolhi. O que precisa?",
+                     "opcoes": [
+                        {"texto": "Procuro a terceira estrofe do Hino.", "proximo_dialogo": "revelacao", "efeito_fe_heroi": 5}
+                    ]
+                },
+                "revelacao": {
+                    "texto": "Uma verdade que aprendi a duras penas. Lembre-se: '...pois o amor é uma escolha...'. Use esta Escritura para mostrar isso a outros.",
+                    "opcoes": [{"texto": "Não esquecerei.", "adicionar_pista": "...pois o amor é uma escolha...", "adicionar_item": "escritura"}]
+                }
+            }
+        },
+        "tome": {
+            "tipo": "lider",
+            "fe": 100,
+            "dialogos": {
+                "inicial": {
+                    "texto": "Eu duvidei que a Luz pudesse retornar. Sua determinação prova que eu estava errado. O que deseja?",
+                     "opcoes": [
+                        {"texto": "Busco a quarta estrofe.", "proximo_dialogo": "revelacao", "efeito_fe_heroi": 5}
+                    ]
+                },
+                "revelacao": {
+                    "texto": "A dúvida é apenas o início da sabedoria. Medite nisto: '...que se manifesta na ação...'. Que este Crucifixo o proteja da dúvida que os Agentes espalham.",
+                    "opcoes": [{"texto": "Faz sentido.", "adicionar_pista": "...que se manifesta na ação...", "adicionar_item": "crucifixo"}]
+                }
+            }
+        },
+        "pedro": {
+            "tipo": "lider",
+            "fe": 100,
+            "dialogos": {
+                "inicial": {
+                    "texto": "Você se tornou uma rocha nesta comunidade. Um ponto de luz firme na escuridão. Fale.",
+                     "opcoes": [
+                        {"texto": "Vim em busca da última estrofe.", "proximo_dialogo": "revelacao", "efeito_fe_heroi": 5}
+                    ]
+                },
+                "revelacao": {
+                    "texto": "O Amanhecer se aproxima. A última peça da canção é esta: '...e a verdadeira rede... une almas.'. Leve este Rosário. Que nenhuma treva o toque.",
+                    "opcoes": [{"texto": "A canção está completa.", "adicionar_pista": "...e a verdadeira rede... une almas.", "adicionar_item": "rosario"}]
+                }
+            }
+        },
+        "tiago": {
+            "tipo": "neutro",
+            "fe": 40,
+            "dialogos": {
+                "inicial": {
+                    "texto": "De que adianta falar? Palavras não aquecem o frio nem trazem o sol de volta. Ações importam. O que você faz?",
+                    "opcoes": [
+                        {"texto": "Minha ação é conectar. Cada palavra de esperança é um tijolo para construir um abrigo.", "proximo_dialogo": "resposta_positiva", "efeito_fe_npc": 25},
+                        {"texto": "Nada. Apenas sobrevivo, como todos.", "proximo_dialogo": "resposta_negativa", "efeito_fe_npc": -15}
+                    ]
+                },
+                "resposta_positiva": {
+                    "texto": "Um abrigo de palavras... uma construção de fé. Gosto disso. Uma ação que posso compreender. Continue.",
+                    "opcoes": [{"texto": "Continuarei."}]
+                },
+                 "resposta_negativa": {
+                    "texto": "Sobreviver... sim. É tudo o que nos resta. Apenas existir no escuro.",
+                    "opcoes": [{"texto": "Talvez."}]
+                }
+            }
+        },
+        "mateus": {
+            "tipo": "neutro",
+            "fe": 35,
+            "dialogos": {
+                 "inicial": {
+                    "texto": "Eu conto os dias desde que a luz se foi. As perdas se acumulam. Tudo são números. Onde a sua 'esperança' entra na equação?",
+                    "opcoes": [
+                        {"texto": "A esperança não é um número. É o que nos dá forças para continuar contando.", "proximo_dialogo": "resposta_positiva", "efeito_fe_npc": 30},
+                        {"texto": "Em lugar nenhum. É só uma ilusão para nos distrair da fria matemática da realidade.", "proximo_dialogo": "resposta_negativa", "efeito_fe_npc": -20}
+                    ]
+                },
+                "resposta_positiva": {
+                    "texto": "Força para... continuar? Uma variável que eu não considerei. Se a esperança alimenta a persistência... talvez a equação esteja incompleta.",
+                    "opcoes": [{"texto": "Ela sempre esteve."}]
+                },
+                 "resposta_negativa": {
+                    "texto": "Então é isso. Apenas contamos até chegar a zero. Não há mais nada.",
+                    "opcoes": [{"texto": "É o que parece."}]
+                }
+            }
+        },
+        "lucas": {
+            "tipo": "neutro",
+            "fe": 50,
+            "dialogos": {
+                "inicial": {
+                    "texto": "Analiso os logs. A escuridão é a doença. O medo, o sintoma. Não vejo uma cura lógica.",
+                    "opcoes": [
+                        {"texto": "A cura não é lógica, é conexão. A Luz de um aquece o outro.", "proximo_dialogo": "resposta_positiva", "efeito_fe_npc": 20},
+                        {"texto": "Não há cura. Apenas paliativos até o sistema falhar de vez.", "proximo_dialogo": "resposta_negativa", "efeito_fe_npc": -10}
+                    ]
+                },
+                "resposta_positiva": {
+                    "texto": "Uma... terapia de rede? Onde a cura é transmitida entre nós? Um contágio de esperança... A hipótese é... fascinante. Preciso de mais dados.",
+                    "opcoes": [{"texto": "Eu serei o seu dado."}]
+                },
+                 "resposta_negativa": {
+                    "texto": "Exato. Apenas adiamos o inevitável. O prognóstico é terminal.",
+                    "opcoes": [{"texto": "É a realidade."}]
+                }
+            }
+        },
+        "andre": {
+            "tipo": "neutro",
+            "fe": 30,
+            "dialogos": {
+                "inicial": {
+                    "texto": "Eu chamo na escuridão, mas só o eco responde. Estou sozinho. O esforço é inútil.",
+                    "opcoes": [
+                        {"texto": "Você não está sozinho. Eu estou aqui. Minha rede alcançou você.", "proximo_dialogo": "resposta_positiva", "efeito_fe_npc": 35},
+                        {"texto": "Estamos todos sozinhos. O eco é a única verdade.", "proximo_dialogo": "resposta_negativa", "efeito_fe_npc": -25}
+                    ]
+                },
+                "resposta_positiva": {
+                    "texto": "Sua rede... alcançou a mim? Uma conexão... Há quanto tempo eu não sentia isso. Talvez... talvez valha a pena chamar de novo.",
+                    "opcoes": [{"texto": "Chame. Alguém vai ouvir."}]
+                },
+                 "resposta_negativa": {
+                    "texto": "Então este diálogo... é apenas meu próprio eco. Não há mais nada a ser dito.",
+                    "opcoes": [{"texto": "..."}]
+                }
+            }
+        },
+        "filipe": {
+            "tipo": "neutro",
+            "fe": 45,
+            "dialogos": {
+                "inicial": {
+                    "texto": "Mostre-me a Luz. Não em palavras, mas em algo real. Como posso acreditar no sol se não me lembro do seu calor?",
+                    "opcoes": [
+                        {"texto": "O calor que você procura não vem de cima, mas de dentro. De nós. Sinta a esperança na rede.", "proximo_dialogo": "resposta_positiva", "efeito_fe_npc": 25},
+                        {"texto": "O calor era uma ilusão. O frio é a única realidade agora.", "proximo_dialogo": "resposta_negativa", "efeito_fe_npc": -15}
+                    ]
+                },
+                "resposta_positiva": {
+                    "texto": "O calor... dos outros? Uma luz que vem da conexão... É sutil, mas... eu acho que sinto. Um calor fraco. É o suficiente por agora.",
+                    "opcoes": [{"texto": "É o começo."}]
+                },
+                 "resposta_negativa": {
+                    "texto": "Então a memória mente. Não há nada para esperar. Apenas o frio.",
+                    "opcoes": [{"texto": "(Silêncio)"}]
+                }
+            }
+        },
+        "judas": {
+            "tipo": "neutro",
+            "fe": 25,
+            "dialogos": {
+                "inicial": {
+                    "texto": "Por que eu deveria confiar em você? A última vez que confiei, fui traído pelo sistema. Tudo tem um preço.",
+                    "opcoes": [
+                        {"texto": "A Luz não pede um preço. Pede apenas uma chance. O perdão é o presente.", "proximo_dialogo": "resposta_positiva", "efeito_fe_npc": 40},
+                        {"texto": "O preço é a sua obediência. A confiança é irrelevante.", "proximo_dialogo": "resposta_negativa", "efeito_fe_npc": -30}
+                    ]
+                },
+                "resposta_positiva": {
+                    "texto": "Perdão... sem custo? Esta ideia... vai contra tudo o que aprendi no escuro. Mas é a única que pode apagar o erro. Eu... aceito.",
+                    "opcoes": [{"texto": "A paz esteja com você."}]
+                },
+                 "resposta_negativa": {
+                    "texto": "Obediência. Eu sabia. Outra forma de controle. Prefiro a minha desconfiança honesta à sua Luz comprada.",
+                    "opcoes": [{"texto": "É uma pena."}]
+                }
+            }
+        },
+        "nero": { "tipo": "agente", "fe": 0, "dialogos": { "inicial": { "texto": "Anomalia de esperança detectada. Protocolo de purificação iniciado.", "opcoes": [{"texto": "(Recuar)"}] }}},
+        "caifas": { "tipo": "agente", "fe": 0, "dialogos": { "inicial": { "texto": "É melhor que uma luz se apague para que o silêncio prevaleça. Você será corrigido.", "opcoes": [{"texto": "(Recuar)"}] }}}
+    },
+    "objetivos": [
+        "Acenda a Luz em 1 alma (80%) e fale com Gabriel.",
+        "Fale com a líder Maria para obter a primeira estrofe.",
+        "Acenda a Luz em um total de 2 almas (80%) e fale com Gabriel.",
+        "Fale com o líder João para obter a segunda estrofe.",
+        "Acenda a Luz em um total de 3 almas (80%) e fale com Gabriel.",
+        "Fale com o líder Paulo para obter a terceira estrofe.",
+        "Acenda a Luz em um total de 4 almas (80%) e fale com Gabriel.",
+        "Fale com o líder Tomé para obter a quarta estrofe.",
+        "Acenda a Luz em um total de 5 almas (80%) e fale com Gabriel.",
+        "Fale com o líder Pedro para obter a quinta estrofe.",
+        "Aumente a Luz média da rede para >80% para ter acesso ao Sábio.",
+        "Leve o Hino do Amanhecer ao Sábio Bento."
+    ],
+    "fases_jogo": {
+        "fase_1": {"id": 1, "objetivo_conversao_indice": 0, "objetivo_lider_indice": 1, "conversao_necessaria": 1, "lider": "maria", "initial_active_npcs": ["gabriel", "tiago", "nero"]},
+        "fase_2": {"id": 2, "objetivo_conversao_indice": 2, "objetivo_lider_indice": 3, "conversao_necessaria": 2, "lider": "joao", "initial_active_npcs": ["mateus"]},
+        "fase_3": {"id": 3, "objetivo_conversao_indice": 4, "objetivo_lider_indice": 5, "conversao_necessaria": 3, "lider": "paulo", "initial_active_npcs": ["lucas", "caifas"]},
+        "fase_4": {"id": 4, "objetivo_conversao_indice": 6, "objetivo_lider_indice": 7, "conversao_necessaria": 4, "lider": "tome", "initial_active_npcs": ["andre"]},
+        "fase_5": {"id": 5, "objetivo_conversao_indice": 8, "objetivo_lider_indice": 9, "conversao_necessaria": 5, "lider": "pedro", "initial_active_npcs": ["filipe", "judas"]},
+        "fase_6": {"id": 6, "objetivo_espera_indice": 10, "objetivo_final_indice": 11, "sabio": "bento", "initial_active_npcs": ["bento"]}
+    },
+    "finais": {
+        "vitoria": "Você recitou o Hino. A Luz não voltou ao céu, mas floresceu na rede, uma conexão inquebrável entre todos. O Amanhecer não é um evento, mas uma escolha. A escolha de serem luz uns para os outros. Você encontrou a Redenção.",
+        "fe_baixa": "Sua luz se apagou. Consumido pela escuridão, seu terminal se silencia. Você se torna mais um eco perdido na estática. Fim da linha.",
+        "impasse": "Um caminho para a Redenção foi perdido para sempre. Não há mais esperança de reunir o Hino. A escuridão vence. Fim da linha."
+    }
+}

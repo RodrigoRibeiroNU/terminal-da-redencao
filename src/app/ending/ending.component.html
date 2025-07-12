@@ -1,0 +1,9 @@
+<div id="ending-container">
+  <div class="ending-content">
+    <h1>Fim da Linha</h1>
+    <p class="final-message">
+      {{ gameStateSvc.gameState.heroi_fe_percent > 0 ? gameStateSvc.gameData.finais.vitoria : gameStateSvc.gameData.finais.fe_baixa }}
+    </p>
+    <button class="restart-button" (click)="restartGame()">REINICIAR</button>
+  </div>
+</div>
