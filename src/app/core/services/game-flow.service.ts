@@ -36,23 +36,10 @@ export class GameFlowService {
         this.stateSvc.setGameState(this.stateSvc.getInitialGameState());
     }
 
-    public loadFromAutosave() {
-        const saved = localStorage.getItem('redencao_autosave');
-        if (saved) {
-            const loadedState = JSON.parse(saved);
-            loadedState.current_view = 'gameplay';
-            this.stateSvc.setGameState(loadedState);
-            this.stateSvc.clearLog();
-            this.stateSvc.addLog("Jogo continuado a partir do último ponto salvo.", 'log-positivo');
-        } else {
-            this.stateSvc.addLog("Nenhum jogo salvo encontrado para continuar. Comece um 'novo' jogo.", 'log-negativo');
-        }
-    }
-
     private showMainMenuText() {
         this.stateSvc.clearLog();
         this.stateSvc.addLog(`Terminal da Redenção v${packageInfo.version}`, 'log-sistema');
-        this.stateSvc.addLog("Digite 'novo' para iniciar, 'carregar' para enviar um ficheiro, ou 'continuar' para usar o último autosave.", 'log-sistema');
+        this.stateSvc.addLog("\nDigite 'novo' para iniciar, 'carregar' para enviar um arquivo.", 'log-sistema');
     }
     public getCurrentObjectiveText(): string {
         const gameState = this.stateSvc.gameState;

@@ -57,10 +57,6 @@ export class GameStateService {
     }
 
     this._gameState.next(nextState);
-
-    if (!nextState.game_over) {
-      this.autosaveToLocalStorage();
-    }
   }
 
   public addLog(text: string, className: string = '') {

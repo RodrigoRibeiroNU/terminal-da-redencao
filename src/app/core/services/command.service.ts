@@ -49,7 +49,7 @@ export class CommandService {
 
     const comandos: { [key: string]: Function } = {
       "novo": () => this.flowSvc.startOpeningSequence(),
-      "ajuda": () => this.stateSvc.addLog("Comandos: falar, usar, online, pistas, inventario, salvar, carregar, continuar, sair", 'log-positivo'),
+      "ajuda": () => this.stateSvc.addLog("Comandos: falar, usar, online, pistas, inventario, salvar, carregar, sair", 'log-positivo'),
       "online": () => this.listarPersonagensOnline(),
       "pistas": () => this.listarPistas(),
       "inventario": () => this.listarInventario(),
@@ -57,7 +57,6 @@ export class CommandService {
       "responder": () => this.characterSvc.processarRespostaDialogo(command),
       "salvar": () => this.stateSvc.exportSaveToFile(),
       "carregar": () => this.stateSvc.triggerFileUpload(),
-      "continuar": () => this.flowSvc.loadFromAutosave(),
       "usar": () => this.itemSvc.usarItem(argumento),
       "sair": () => this.flowSvc.resetGame()
     };
