@@ -33,7 +33,11 @@ export class GameFlowService {
     }
 
     public resetGame() {
-        this.stateSvc.setGameState(this.stateSvc.getInitialGameState());
+        const initialState = this.stateSvc.getInitialGameState();
+        
+        this.stateSvc.setGameState({ ...initialState, current_view: 'menu' });
+        
+        this.showMainMenuText();
     }
 
     private showMainMenuText() {

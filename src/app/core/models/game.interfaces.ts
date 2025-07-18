@@ -22,7 +22,7 @@ export interface GameState {
   game_over: boolean;
   dialogo_atual: { npc: string, opcoes: any[] } | null;
   nome_jogador_global: string;
-  heroi_inventory: string[];
+  heroi_inventory: { [key: string]: number };
   objetivo_fase_concluido: boolean;
   fase_final_iniciada: boolean;
   pending_action: PendingAction | null;

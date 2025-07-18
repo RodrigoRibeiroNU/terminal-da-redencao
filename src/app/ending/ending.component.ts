@@ -15,15 +15,10 @@ export class EndingComponent {
   constructor(
     public gameStateSvc: GameStateService,
     private flowSvc: GameFlowService,
-    private appRef: ApplicationRef // 2. INJETE O ApplicationRef
   ) {}
 
   restartGame() {
     // 3. CHAME A FUNÇÃO PARA REINICIAR O JOGO
     this.flowSvc.resetGame();
-    
-    // 4. FORCE A ATUALIZAÇÃO DE TODA A APLICAÇÃO
-    // Isto garante que o AppComponent perceba a mudança e mostre a tela de título.
-    this.appRef.tick();
   }
 }

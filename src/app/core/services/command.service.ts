@@ -17,6 +17,13 @@ export class CommandService {
     private inactivitySvc: InactivityService // A inatividade ainda pode ser relevante aqui
   ) { }
 
+  private normalizeString(str: string): string {
+    return str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  }
+
   public processCommand(command: string) {
     const gameState = this.stateSvc.gameState;
     if (gameState.game_over) return;
@@ -24,6 +31,7 @@ export class CommandService {
     // Ação pendente tem prioridade (ex: usar item em um alvo)
     if (gameState.pending_action) {
       if (gameState.pending_action.item === 'escritura') {
+        // Para o alvo, mantemos o nome original digitado
         this.itemSvc.usarEscrituraNoAlvo(command);
       }
       return;
@@ -34,11 +42,13 @@ export class CommandService {
       this.inactivitySvc.forceScreensaver();
       return;
     }
-
+    
     this.stateSvc.addLog(`> ${command}`, 'log-heroi');
 
-    const parts = command.split(' ');
-    const acao = parts[0].toLowerCase();
+    // Normaliza o comando completo antes de dividir
+    const normalizedCommand = this.normalizeString(command);
+    const parts = normalizedCommand.split(' ');
+    const acao = parts[0];
     const argumento = parts.slice(1).join(' ');
 
     // Impede outros comandos durante um diálogo
@@ -96,14 +106,19 @@ export class CommandService {
     const gameState = this.stateSvc.gameState;
     const gameData = this.stateSvc.gameData;
     this.stateSvc.addLog("Inventário:", 'log-sistema');
-    if (gameState.heroi_inventory.length === 0) {
+    
+    const itensDoInventario = Object.keys(gameState.heroi_inventory);
+
+    if (itensDoInventario.every(key => gameState.heroi_inventory[key] === 0)) {
         this.stateSvc.addLog("Vazio.", 'log-sistema');
         return;
     }
-    gameState.heroi_inventory.forEach(itemKey => {
+
+    itensDoInventario.forEach(itemKey => {
         const item = gameData.itens[itemKey];
-        if(item) {
-            this.stateSvc.addLog(`- ${item.nome}: ${item.descricao}`, 'log-positivo');
+        const quantidade = gameState.heroi_inventory[itemKey];
+        if (item && quantidade > 0) {
+            this.stateSvc.addLog(`- ${item.nome} (x${quantidade}): ${item.descricao}`, 'log-positivo');
         }
     });
   }

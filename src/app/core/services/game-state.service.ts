@@ -17,7 +17,7 @@ export class GameStateService {
     game_over: false,
     dialogo_atual: null,
     nome_jogador_global: "",
-    heroi_inventory: [],
+    heroi_inventory: {},
     objetivo_fase_concluido: false,
     fase_final_iniciada: false,
     pending_action: null,
@@ -89,14 +89,55 @@ export class GameStateService {
           
           this.clearLog();
 
+          // Restaura o histórico, se existir
           if (loadedState.recent_log && loadedState.recent_log.length > 0) {
             this.addLogBlock(loadedState.recent_log);
             this.addLog("--------------------------------------------------", "log-sistema");
           }
           
+          // Apaga o histórico do objeto para não ficar na memória
           delete loadedState.recent_log;
-          this.setGameState(loadedState);
+          
+// Guarda uma cópia dos personagens com a fé correta do ficheiro salvo
+          const personagensSalvos = { ...loadedState.personagens_atuais };
 
+          // Define o estado base, mas ainda sem os personagens
+          this.setGameState({ ...loadedState, personagens_atuais: {} });
+
+          // Prepara a nova lista de personagens que estarão ativos
+          const personagensRecarregados: { [key: string]: NpcData } = {};
+
+          // Itera por todas as fases até à fase atual do jogador
+          for (let i = 1; i <= loadedState.fase_atual; i++) {
+              const phaseKey = `fase_${i}`;
+              const phaseData = this.gameData.fases_jogo[phaseKey];
+
+              if (phaseData) {
+                  // Função auxiliar para adicionar/atualizar um personagem
+                  const adicionarOuAtualizarPersonagem = (npcName: string) => {
+                    if (!npcName) return;
+                    // Se o personagem já estava no ficheiro salvo, usa esses dados (com a fé correta)
+                    if (personagensSalvos[npcName]) {
+                        personagensRecarregados[npcName] = personagensSalvos[npcName];
+                    } 
+                    // Se não, carrega-o do estado base (primeira vez que aparece)
+                    else if (loadedState.all_characters_in_game_pool[npcName]) {
+                        personagensRecarregados[npcName] = JSON.parse(JSON.stringify(loadedState.all_characters_in_game_pool[npcName]));
+                    }
+                  };
+
+                  // Adiciona os NPCs iniciais da fase
+                  phaseData.initial_active_npcs.forEach(adicionarOuAtualizarPersonagem);
+
+                  // Se o objetivo da fase foi concluído, ativa também o líder
+                  if (i < loadedState.fase_atual || (i === loadedState.fase_atual && loadedState.objetivo_fase_concluido)) {
+                      adicionarOuAtualizarPersonagem(phaseData.lider);
+                  }
+              }
+          }
+          
+          // Atualiza o estado final com a lista de personagens completa e com a fé correta
+          this.setGameState({ personagens_atuais: personagensRecarregados });
           this.addLog("Jogo carregado com sucesso a partir do ficheiro!", 'log-positivo');
         }
       } catch (error) {

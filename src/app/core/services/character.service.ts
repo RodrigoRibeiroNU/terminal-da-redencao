@@ -107,11 +107,15 @@ export class CharacterService {
     
     this.processarInteracaoFe(npcData, npcName, 0, opcao.efeito_fe_heroi);
 
-    if (opcao.adicionar_item && !this.stateSvc.gameState.heroi_inventory.includes(opcao.adicionar_item)) {
-      const novoInventario = [...this.stateSvc.gameState.heroi_inventory, opcao.adicionar_item];
-      this.stateSvc.setGameState({ heroi_inventory: novoInventario });
-      const nomeItem = this.stateSvc.gameData.itens[opcao.adicionar_item].nome;
-      this.stateSvc.addLog(`[SISTEMA]: Você recebeu '${nomeItem}'!`, 'log-positivo');
+    if (opcao.adicionar_item) {
+      const inventarioAtual = { ...this.stateSvc.gameState.heroi_inventory };
+      const itemKey = opcao.adicionar_item;
+      
+      inventarioAtual[itemKey] = (inventarioAtual[itemKey] || 0) + 1;
+
+      this.stateSvc.setGameState({ heroi_inventory: inventarioAtual });
+      const nomeItem = this.stateSvc.gameData.itens[itemKey].nome;
+      this.stateSvc.addLog(`[SISTEMA]: Você recebeu '${nomeItem}'! (Total: ${inventarioAtual[itemKey]})`, 'log-positivo');
     }
 
     if (opcao.adicionar_pista && !this.stateSvc.gameState.pistas.includes(opcao.adicionar_pista)) {

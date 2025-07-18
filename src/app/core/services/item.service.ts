@@ -13,6 +13,13 @@ export class ItemService {
     private flowSvc: GameFlowService
     ) { }
 
+  private normalizeString(str: string): string {
+    return str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  }
+
   public usarItem(itemName: string) {
     if (!itemName) {
       this.stateSvc.addLog("Especifique um item para usar. Ex: usar oracao", 'log-negativo');
@@ -20,11 +27,14 @@ export class ItemService {
     }
 
     const gameState = this.stateSvc.gameState;
+    const normalizedItemName = this.normalizeString(itemName);
+
+    // Procura por um item cujo nome normalizado COMECE COM o argumento do jogador
     const itemKey = Object.keys(this.stateSvc.gameData.itens).find(key => 
-      this.stateSvc.gameData.itens[key].nome.toLowerCase() === itemName.toLowerCase()
+      this.normalizeString(this.stateSvc.gameData.itens[key].nome).startsWith(normalizedItemName)
     );
 
-    if (!itemKey || !gameState.heroi_inventory.includes(itemKey)) {
+    if (!itemKey || !gameState.heroi_inventory[itemKey] || gameState.heroi_inventory[itemKey] <= 0) {
       this.stateSvc.addLog(`Você não possui o item '${itemName}'.`, 'log-negativo');
       return;
     }
@@ -61,16 +71,18 @@ export class ItemService {
   }
 
   public usarEscrituraNoAlvo(targetName: string) {
-    const alvo = targetName.toLowerCase();
+    const alvo = this.normalizeString(targetName);
     const personagens = this.stateSvc.gameState.personagens_atuais;
     
     if (personagens[alvo] && personagens[alvo].tipo === 'neutro') {
       personagens[alvo].fe = 100;
       this.stateSvc.setGameState({ personagens_atuais: personagens, pending_action: null });
       
-      const inventory = [...this.stateSvc.gameState.heroi_inventory];
-      const itemIndex = inventory.indexOf('escritura');
-      if (itemIndex > -1) inventory.splice(itemIndex, 1);
+      // Decrementa a quantidade do item "escritura"
+      const inventory = { ...this.stateSvc.gameState.heroi_inventory };
+      if (inventory['escritura'] > 0) {
+        inventory['escritura']--;
+      }
       this.stateSvc.setGameState({ heroi_inventory: inventory });
 
       this.stateSvc.addLog(`Você lê a Escritura para ${alvo.toUpperCase()}. A fé dele(a) é restaurada para 100%!`, 'log-positivo');
