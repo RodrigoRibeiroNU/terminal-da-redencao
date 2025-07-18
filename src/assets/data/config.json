@@ -1,0 +1,11 @@
+{
+    "agentes": {
+        "enabled": true,
+        "chance_ataque_por_turno": 0.15,
+        "penalidade_fe_por_perda": 0
+    },
+    "screensaver": {
+        "enabled": true,
+        "timeout_seconds": 300
+    }
+}

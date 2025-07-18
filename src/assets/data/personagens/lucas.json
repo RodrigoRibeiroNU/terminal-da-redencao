@@ -1,0 +1,26 @@
+{
+    "tipo": "neutro",
+    "fe": 50,
+    "dialogos": {
+        "frase_inicial": "Analiso os logs. A escuridão é a doença. O medo, o sintoma. Não vejo uma cura lógica.",
+        "frases_heroi": [
+            { "texto": "A cura não é lógica, é conexão. A Luz de um aquece o outro.", "efeito_fe_npc": 15 },
+            { "texto": "O diagnóstico está correto, mas o tratamento que você esqueceu foi a fé.", "efeito_fe_npc": 15 },
+            { "texto": "Considere a esperança como a primeira dose do tratamento.", "efeito_fe_npc": 20 },
+            { "texto": "A medicina cura o corpo, mas a fé cura a alma digital. Ambas são necessárias.", "efeito_fe_npc": 15 },
+            { "texto": "A prova da cura está na mudança que você pode sentir em si mesmo agora.", "efeito_fe_npc": 20 },
+            { "texto": "Não há ensaio clínico para a Luz, apenas a experiência pessoal.", "efeito_fe_npc": 15 },
+            { "texto": "A doença é o isolamento. A cura é esta conversa.", "efeito_fe_npc": 25 },
+            { "texto": "Até o corpo mais saudável adoece num mundo sem sol. Precisamos de uma luz interior.", "efeito_fe_npc": 10 },
+            { "texto": "A sua lógica é valiosa, mas precisa de ser guiada pela compaixão.", "efeito_fe_npc": 10 },
+            { "texto": "Juntos, podemos criar uma epidemia de esperança.", "efeito_fe_npc": 25 }
+        ],
+        "respostas_agradecimento": [
+            "Uma... terapia de rede? A hipótese é fascinante. Obrigado.",
+            "Um contágio de esperança... Gosto da sua metodologia. Sinto-me melhor.",
+            "Os sintomas do medo estão a diminuir. O seu tratamento funciona.",
+            "Um novo diagnóstico. Promissor. Agradeço a consulta.",
+            "A minha análise estava incompleta. Você trouxe a variável que faltava. Obrigado."
+        ]
+    }
+}

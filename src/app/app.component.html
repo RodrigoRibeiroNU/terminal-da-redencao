@@ -1,16 +1,19 @@
 <div id="monitor-container" *ngIf="gameState$ | async as gameState">
   
-  <app-opening *ngIf="!gameState.opening_complete" (openingComplete)="onOpeningComplete()"></app-opening>
+  <app-title-screen *ngIf="gameState.current_view === 'title'"></app-title-screen>
+  
+  <app-opening *ngIf="gameState.current_view === 'opening'" (openingComplete)="onOpeningComplete()"></app-opening>
 
-  <ng-container *ngIf="gameState.opening_complete && !gameState.game_over">
+  <div id="terminal-wrapper" *ngIf="(gameState.current_view === 'menu' || gameState.current_view === 'gameplay') && !gameState.game_over">
     <app-screensaver *ngIf="isScreensaverActive$ | async"></app-screensaver>
     <div id="terminal" (click)="focusInput()" [hidden]="isScreensaverActive$ | async">
+      
       <div id="status-bar" *ngIf="gameState.nome_jogador_global && gameState.nome_jogador_global !== 'PENDING'">
         <div id="status-heroi">
           Usuário: <span id="player-name">{{ getPlayerDisplayName() }}</span>
           (Fé: <span id="player-faith">{{ gameState.heroi_fe_percent.toFixed(0) }}</span>%)
         </div>
-        <div id="status-objetivo">Objetivo: <span id="current-objective">{{ getObjetivoAtual() }}</span></div>
+        <div id="status-objetivo">Objetivo: <span id="current-objective">{{ flowSvc.getCurrentObjectiveText() }}</span></div>
         <div id="status-pistas">Pistas: <span id="pistas-count">{{ gameState.pistas.length }}</span></div>
       </div>
 
@@ -19,7 +22,7 @@
       </div>
 
       <div id="command-line">
-        <span class="prompt">{{ promptText }}</span>
+        <span class="prompt">{{ flowSvc.getCurrentPromptText() }}</span>
         <input
           #commandInputElement
           type="text"
@@ -32,9 +35,9 @@
         />
       </div>
     </div>
-  </ng-container>
+  </div>
 
-  <app-ending *ngIf="gameState.opening_complete && gameState.game_over"></app-ending>
+  <app-ending *ngIf="gameState.current_view === 'ending'"></app-ending>
 
   <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)" accept=".json">
 </div>

@@ -1,4 +1,5 @@
-// src/app/core/models/game.interfaces.ts
+// *** ALTERAÇÃO AQUI ***
+export type GameView = 'loading' | 'title' | 'opening' | 'menu' | 'gameplay' | 'ending';
 
 export interface NpcData {
   tipo: 'guia' | 'agente' | 'neutro' | 'lider' | 'sabio';
@@ -6,15 +7,13 @@ export interface NpcData {
   dialogos: any;
 }
 
-// REMOVIDA: A interface Buff não será mais usada para estes itens.
-// export interface Buff { ... }
-
 export interface PendingAction {
   item: string;
   step: 'awaiting_target';
 }
 
 export interface GameState {
+  current_view: GameView;
   fase_atual: number;
   heroi_fe_percent: number;
   pistas: string[];
@@ -26,7 +25,6 @@ export interface GameState {
   heroi_inventory: string[];
   objetivo_fase_concluido: boolean;
   fase_final_iniciada: boolean;
-  opening_complete: boolean;
   pending_action: PendingAction | null;
   oracao_usada_na_fase_atual: boolean;
   crucifixo_ativo: boolean;

@@ -1,0 +1,26 @@
+{
+    "tipo": "neutro",
+    "fe": 35,
+    "dialogos": {
+        "frase_inicial": "Eu conto os ciclos desde que a luz se foi. As perdas acumulam-se. Onde a sua 'esperança' entra na equação?",
+        "frases_heroi": [
+            { "texto": "A esperança não é um número. É o que nos dá forças para continuar a contar.", "efeito_fe_npc": 20 },
+            { "texto": "Algumas variáveis não podem ser quantificadas. A fé é uma delas.", "efeito_fe_npc": 15 },
+            { "texto": "A sua lógica é uma ferramenta, não uma prisão. Olhe para além dos números.", "efeito_fe_npc": 15 },
+            { "texto": "Cada alma que reacendemos é um dado que altera a equação a nosso favor.", "efeito_fe_npc": 20 },
+            { "texto": "O valor de uma vida não pode ser calculado, apenas afirmado.", "efeito_fe_npc": 15 },
+            { "texto": "A estatística do desespero só pode ser combatida com atos de fé ilógicos.", "efeito_fe_npc": 25 },
+            { "texto": "Considere a Luz como um axioma. Uma verdade que não precisa de ser provada.", "efeito_fe_npc": 10 },
+            { "texto": "Os seus cálculos descrevem o mundo como ele é, mas a fé descreve como ele pode ser.", "efeito_fe_npc": 20 },
+            { "texto": "O que você sente ao falar comigo? Isso pode ser medido?", "efeito_fe_npc": 10 },
+            { "texto": "Vamos criar uma nova estatística: a da esperança.", "efeito_fe_npc": 25 }
+        ],
+        "respostas_agradecimento": [
+            "Uma variável que eu não considerei... Talvez a equação esteja incompleta. Obrigado.",
+            "Interessante. A minha lógica está a ser desafiada. Agradeço a perspetiva.",
+            "Sinto... um erro de arredondamento na minha tristeza. Obrigado.",
+            "Os seus dados são convincentes. A minha esperança aumentou.",
+            "Você recalibrou os meus parâmetros. A minha Luz está mais forte."
+        ]
+    }
+}

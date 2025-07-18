@@ -1,0 +1,10 @@
+{
+    "tipo": "agente",
+    "fe": 0,
+    "dialogos": {
+        "inicial": {
+            "texto": "É melhor que uma luz se apague para que o silêncio prevaleça. Você será corrigido.",
+            "opcoes": [{"texto": "(Recuar)"}]
+        }
+    }
+}

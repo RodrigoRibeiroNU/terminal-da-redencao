@@ -1,0 +1,45 @@
+#title-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  color: #32cd32;
+  font-family: 'VT323', monospace;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in;
+}
+
+.title-art {
+  font-size: 16px; /* Ajuste o tamanho da fonte para a arte ASCII caber bem */
+  text-align: center;
+  line-height: 1;
+  text-shadow: 0 0 8px #32cd32;
+}
+
+.version {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #00ffff;
+}
+
+.prompt-text {
+  margin-top: 40px;
+  font-size: 22px;
+  animation: blink 1.5s step-end infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}

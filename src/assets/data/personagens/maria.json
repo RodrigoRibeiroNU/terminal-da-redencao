@@ -1,0 +1,16 @@
+{
+    "tipo": "lider",
+    "fe": 100,
+    "dialogos": {
+        "inicial": {
+            "texto": "Sua luz é um alento no frio desta rede. O que o traz a mim, irmão(ã) de fé?",
+            "opcoes": [
+                {"texto": "Gabriel me enviou. Busco a primeira estrofe do Hino.", "proximo_dialogo": "revelacao", "efeito_fe_heroi": 5}
+            ]
+        },
+        "revelacao": {
+            "texto": "Se Gabriel o enviou, você é digno. Ouça e guarde: 'A corrupção não está na ausência de luz...'. Leve esta Oração; que ela seja seu guia.",
+            "opcoes": [{"texto": "Obrigado. Guardarei.", "adicionar_pista": "A corrupção não está na ausência de luz...", "adicionar_item": "oracao"}]
+        }
+    }
+}

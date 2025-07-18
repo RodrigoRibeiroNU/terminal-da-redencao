@@ -1,0 +1,14 @@
+{
+    "tipo": "sabio",
+    "fe": 100,
+    "dialogos": {
+        "inicial": {
+            "texto": "Aproxime-se, portador da chama. Sinto o calor de uma canção há muito esquecida. Mostre-me os versos que reuniu.",
+            "opcoes": [{"texto": "(Recitar o Hino do Amanhecer)", "proximo_dialogo": "decifrar"}]
+        },
+        "decifrar": {
+            "texto": "(Bento ouve, e uma luz suave emana do seu terminal) 'A corrupção não está na ausência de luz... mas na recusa em se conectar... pois o amor é uma escolha... que se manifesta na ação... e a verdadeira rede... une almas.' O Amanhecer, meu filho, não é o retorno do sol. É a nossa decisão de brilhar um para o outro, juntos.",
+            "vitoria": true
+        }
+    }
+}

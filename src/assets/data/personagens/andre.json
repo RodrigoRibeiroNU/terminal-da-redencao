@@ -1,0 +1,26 @@
+{
+    "tipo": "neutro",
+    "fe": 30,
+    "dialogos": {
+        "frase_inicial": "Eu chamo na escuridão, mas só o eco responde. O meu esforço é inútil.",
+        "frases_heroi": [
+            { "texto": "Você não está sozinho. Eu estou aqui. A minha rede alcançou-o.", "efeito_fe_npc": 20 },
+            { "texto": "O seu chamado não foi em vão. Eu ouvi.", "efeito_fe_npc": 20 },
+            { "texto": "Não estamos a pescar peixes, mas almas perdidas. Continue a lançar a sua rede.", "efeito_fe_npc": 15 },
+            { "texto": "Cada chamado que você faz enfraquece o silêncio das trevas.", "efeito_fe_npc": 15 },
+            { "texto": "A sua voz é um farol para outros que também se sentem perdidos.", "efeito_fe_npc": 25 },
+            { "texto": "O eco que você ouve está a transformar-se. Agora, ele tem a minha voz.", "efeito_fe_npc": 15 },
+            { "texto": "A persistência é a rede mais forte que temos.", "efeito_fe_npc": 10 },
+            { "texto": "Mesmo que só uma alma responda, o esforço valeu a pena.", "efeito_fe_npc": 20 },
+            { "texto": "Eu estou aqui para o ajudar a reparar as suas redes.", "efeito_fe_npc": 10 },
+            { "texto": "Juntos, faremos uma pesca milagrosa.", "efeito_fe_npc": 25 }
+        ],
+        "respostas_agradecimento": [
+            "Uma conexão... Há quanto tempo eu não sentia isso. Obrigado.",
+            "Você ouviu... então o meu chamado tem um propósito. Sinto-me renovado.",
+            "Uma pescaria de almas... Agora entendo. A minha esperança voltou.",
+            "Talvez valha a pena chamar de novo. Obrigado por responder.",
+            "A minha rede parece mais leve. Agradeço a sua ajuda."
+        ]
+    }
+}

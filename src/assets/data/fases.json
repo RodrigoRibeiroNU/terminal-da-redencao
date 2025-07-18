@@ -1,0 +1,86 @@
+{
+    "objetivos": [
+        "Acenda a Luz em 1 alma (80%) e fale com Gabriel.",
+        "Fale com a líder Maria para obter a primeira estrofe.",
+        "Acenda a Luz em um total de 2 almas (80%) e fale com Gabriel.",
+        "Fale com o líder João para obter a segunda estrofe.",
+        "Acenda a Luz em um total de 3 almas (80%) e fale com Gabriel.",
+        "Fale com o líder Paulo para obter a terceira estrofe.",
+        "Acenda a Luz em um total de 4 almas (80%) e fale com Gabriel.",
+        "Fale com o líder Tomé para obter a quarta estrofe.",
+        "Acenda a Luz em um total de 5 almas (80%) e fale com Gabriel.",
+        "Fale com o líder Pedro para obter a quinta estrofe.",
+        "Aumente a Luz média da rede para >80% para ter acesso ao Sábio.",
+        "Leve o Hino do Amanhecer ao Sábio Bento."
+    ],
+    "fases_jogo": {
+        "fase_1": {
+            "id": 1,
+            "objetivo_conversao_indice": 0,
+            "objetivo_lider_indice": 1,
+            "conversao_necessaria": 1,
+            "lider": "maria",
+            "initial_active_npcs": [
+                "gabriel",
+                "tiago",
+                "nero"
+            ]
+        },
+        "fase_2": {
+            "id": 2,
+            "objetivo_conversao_indice": 2,
+            "objetivo_lider_indice": 3,
+            "conversao_necessaria": 2,
+            "lider": "joao",
+            "initial_active_npcs": [
+                "mateus"
+            ]
+        },
+        "fase_3": {
+            "id": 3,
+            "objetivo_conversao_indice": 4,
+            "objetivo_lider_indice": 5,
+            "conversao_necessaria": 3,
+            "lider": "paulo",
+            "initial_active_npcs": [
+                "lucas",
+                "caifas"
+            ]
+        },
+        "fase_4": {
+            "id": 4,
+            "objetivo_conversao_indice": 6,
+            "objetivo_lider_indice": 7,
+            "conversao_necessaria": 4,
+            "lider": "tome",
+            "initial_active_npcs": [
+                "andre"
+            ]
+        },
+        "fase_5": {
+            "id": 5,
+            "objetivo_conversao_indice": 8,
+            "objetivo_lider_indice": 9,
+            "conversao_necessaria": 5,
+            "lider": "pedro",
+            "initial_active_npcs": [
+                "filipe",
+                "judas"
+            ]
+        },
+        "fase_6": {
+            "id": 6,
+            "objetivo_espera_indice": 10,
+            "objetivo_final_indice": 11,
+            "sabio": "bento",
+            "initial_active_npcs": [
+                "bento"
+            ]
+        }
+    },
+    "finais": {
+        "vitoria": "Você recitou o Hino. A Luz não voltou ao céu, mas floresceu na rede, uma conexão inquebrável entre todos. O Amanhecer não é um evento, mas uma escolha. A escolha de serem luz uns para os outros. Você encontrou a Redenção.",
+        "fe_baixa": "Sua luz se apagou. Consumido pela escuridão, seu terminal se silencia. Você se torna mais um eco perdido na estática. Fim da linha.",
+        "impasse": "Um caminho para a Redenção foi perdido para sempre. Não há mais esperança de reunir o Hino. A escuridão vence. Fim da linha."
+    }
+}

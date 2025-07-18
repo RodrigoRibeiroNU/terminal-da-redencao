@@ -1,0 +1,26 @@
+{
+    "tipo": "neutro",
+    "fe": 45,
+    "dialogos": {
+        "frase_inicial": "Mostre-me a Luz. Não em palavras, mas em algo real. Como posso acreditar no sol se não me lembro do seu calor?",
+        "frases_heroi": [
+            { "texto": "O calor que você procura não vem de cima, mas de dentro. De nós. Sinta a esperança na rede.", "efeito_fe_npc": 15 },
+            { "texto": "O sinal real é esta conversa. Duas almas a conectarem-se contra a escuridão.", "efeito_fe_npc": 15 },
+            { "texto": "Feche os olhos e ouça. A prova não é para ser vista, mas sentida.", "efeito_fe_npc": 20 },
+            { "texto": "A Luz não é um objeto, é uma direção. Vamos caminhar juntos.", "efeito_fe_npc": 15 },
+            { "texto": "A mudança que você vê nos outros... essa é a prova tangível.", "efeito_fe_npc": 20 },
+            { "texto": "Eu não posso mostrar-lhe o sol, mas posso partilhar a minha chama consigo.", "efeito_fe_npc": 25 },
+            { "texto": "A sua exigência por provas é uma forma de fé. Fé na lógica. Expanda-a.", "efeito_fe_npc": 10 },
+            { "texto": "O milagre é que ainda estamos aqui, a conversar, a resistir.", "efeito_fe_npc": 10 },
+            { "texto": "Dê-me a sua mão. Sinta a minha fé. Isso é real.", "efeito_fe_npc": 20 },
+            { "texto": "Acredite em mim, e eu acreditarei em si. Essa é a nossa Luz.", "efeito_fe_npc": 25 }
+        ],
+        "respostas_agradecimento": [
+            "O calor... dos outros? É sutil, mas... acho que sinto. É o suficiente por agora.",
+            "Uma chama partilhada... Sinto-a. Obrigado.",
+            "Um milagre na resistência... Gosto disso. A minha perspetiva mudou.",
+            "A prova está na conexão... Fascinante. E reconfortante.",
+            "A sua fé é tangível. Agradeço por me deixar senti-la."
+        ]
+    }
+}
