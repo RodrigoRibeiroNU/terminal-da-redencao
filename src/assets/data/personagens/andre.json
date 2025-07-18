@@ -2,7 +2,13 @@
     "tipo": "neutro",
     "fe": 30,
     "dialogos": {
-        "frase_inicial": "Eu chamo na escuridão, mas só o eco responde. O meu esforço é inútil.",
+        "frases_iniciais": [
+            "Conexão estabelecida. Se não for sobre reparar um link ou otimizar um nó, talvez esteja a perder o meu tempo.",
+            "Falas de 'Luz'. Eu falo de protocolos e cabos. O que mantém esta rede a funcionar é o meu trabalho, não preces.",
+            "Mais um filósofo... Palavras não remendam um cabo de fibra ótica partido. O que queres?",
+            "A esperança não alimenta os geradores. Se tens um plano prático, eu ouço. Se não, estou ocupado.",
+            "A rede está instável. Se a sua mensagem não for crítica, peço que desconecte."
+        ],
         "frases_heroi": [
             { "texto": "Você não está sozinho. Eu estou aqui. A minha rede alcançou-o.", "efeito_fe_npc": 20 },
             { "texto": "O seu chamado não foi em vão. Eu ouvi.", "efeito_fe_npc": 20 },
@@ -13,14 +19,24 @@
             { "texto": "A persistência é a rede mais forte que temos.", "efeito_fe_npc": 10 },
             { "texto": "Mesmo que só uma alma responda, o esforço valeu a pena.", "efeito_fe_npc": 20 },
             { "texto": "Eu estou aqui para o ajudar a reparar as suas redes.", "efeito_fe_npc": 10 },
-            { "texto": "Juntos, faremos uma pesca milagrosa.", "efeito_fe_npc": 25 }
+            { "texto": "Juntos, faremos uma pesca milagrosa.", "efeito_fe_npc": 25 },
+            { "texto": "Você conecta os terminais. A fé conecta as almas. Ambos são necessários.", "efeito_fe_npc": 20 },
+            { "texto": "O seu trabalho dá-nos a voz. A fé dá-nos a mensagem. Somos uma equipa.", "efeito_fe_npc": 25 },
+            { "texto": "Cada cabo que você repara é um ato de fé na nossa sobrevivência.", "efeito_fe_npc": 15 },
+            { "texto": "A sua estrutura é o corpo. A nossa fé é o coração que a faz pulsar.", "efeito_fe_npc": 20 },
+            { "texto": "A 'Luz' é a energia que nos motiva a continuar a reparar. Não a subestime.", "efeito_fe_npc": 15 }
         ],
         "respostas_agradecimento": [
             "Uma conexão... Há quanto tempo eu não sentia isso. Obrigado.",
             "Você ouviu... então o meu chamado tem um propósito. Sinto-me renovado.",
             "Uma pescaria de almas... Agora entendo. A minha esperança voltou.",
             "Talvez valha a pena chamar de novo. Obrigado por responder.",
-            "A minha rede parece mais leve. Agradeço a sua ajuda."
+            "A minha rede parece mais leve. Agradeço a sua ajuda.",
+            "Hmm. Uma perspetiva funcional. Gosto disso.",
+            "Faz sentido. A rede precisa de um propósito, afinal.",
+            "Ok, você tem a minha atenção. Continue.",
+            "A sua mensagem tem... uma boa estrutura lógica. Obrigado.",
+            "Diagnóstico: a minha eficiência aumentou. Causa: as suas palavras."
         ]
     }
 }

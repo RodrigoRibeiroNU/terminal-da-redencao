@@ -2,7 +2,13 @@
     "tipo": "neutro",
     "fe": 25,
     "dialogos": {
-        "frase_inicial": "Por que eu deveria confiar em você? A última vez que confiei, fui traído pelo sistema. Tudo tem um preço.",
+        "frases_iniciais": [
+            "Transmissão recebida. O que tens para oferecer? O meu tempo não é gratuito.",
+            "Fé? Esperança? Não são moedas de troca nesta rede. Fale de algo com valor real.",
+            "Mais um a vender sonhos... Mostra-me o lucro, e talvez eu me interesse.",
+            "Todos querem algo. O que é que tu queres de mim? E, mais importante, o que eu ganho com isso?",
+            "Conexão aberta. Seja rápido. Há negócios a serem feitos, e conversas vazias não pagam as contas de energia."
+        ],
         "frases_heroi": [
             { "texto": "A redenção não tem preço. É um presente que se aceita pela fé.", "efeito_fe_npc": 25 },
             { "texto": "O meu único interesse é a sua Luz, não o seu valor.", "efeito_fe_npc": 20 },
@@ -13,14 +19,24 @@
             { "texto": "O preço já foi pago. Agora, só resta aceitar a liberdade.", "efeito_fe_npc": 15 },
             { "texto": "Deixe-me provar que a confiança pode ser reconstruída.", "efeito_fe_npc": 15 },
             { "texto": "A verdadeira traição é desistir de si mesmo. Não o faça.", "efeito_fe_npc": 25 },
-            { "texto": "Eu não o vejo como um traidor, mas como uma alma que precisa de Luz.", "efeito_fe_npc": 30 }
+            { "texto": "Eu não o vejo como um traidor, mas como uma alma que precisa de Luz.", "efeito_fe_npc": 30 },
+            { "texto": "Ofereço-lhe algo que não tem preço: confiança. É o bem mais raro nesta rede.", "efeito_fe_npc": 25 },
+            { "texto": "O valor da 'Luz' não está no que ela compra, mas no que ela constrói: uma comunidade.", "efeito_fe_npc": 20 },
+            { "texto": "O maior lucro é um futuro onde não precisemos de negociar pela sobrevivência. Invista nisso.", "efeito_fe_npc": 20 },
+            { "texto": "Eu não quero nada de si, Judas. Quero algo para si: a chance de acreditar em algo mais do que o próximo negócio.", "efeito_fe_npc": 15 },
+            { "texto": "Considere isto um investimento a longo prazo. A fé que partilhamos hoje pode salvar-nos a todos amanhã.", "efeito_fe_npc": 15 }
         ],
         "respostas_agradecimento": [
             "Um... presente? Esta noção... é contrária a toda a minha lógica, mas... é a única que pode me libertar. Eu aceito.",
             "Confiar... é difícil. Mas as suas palavras não soam vazias. Obrigado.",
             "Perdão... gratuito? Talvez... talvez eu possa começar a acreditar nisso.",
             "Você não me julgou. Agradeço por isso. Sinto-me mais leve.",
-            "Uma chance... talvez eu mereça uma. Obrigado pela sua gentileza."
+            "Uma chance... talvez eu mereça uma. Obrigado pela sua gentileza.",
+            "Confiança... é um ativo arriscado. Mas... estou a ouvir.",
+            "Uma proposta... invulgar. Tenho de calcular os potenciais retornos.",
+            "Você argumenta bem. Talvez haja mérito no que diz.",
+            "Hmm. Um investimento sem garantia. E, no entanto... sinto-me tentado.",
+            "Obrigado. Considerarei os termos da sua... oferta."
         ]
     }
 }

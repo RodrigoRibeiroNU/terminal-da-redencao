@@ -32,7 +32,8 @@ export class CharacterService {
 
   private iniciarDialogoNeutro(npcName: string, npcData: NpcData) {
     const dialogo = npcData.dialogos;
-    this.stateSvc.addLog(`[${npcName.toUpperCase()}]: ${dialogo.frase_inicial}`, this.getNpcColor(npcData));
+    const fraseInicialAleatoria = dialogo.frases_iniciais[Math.floor(Math.random() * dialogo.frases_iniciais.length)];
+    this.stateSvc.addLog(`[${npcName.toUpperCase()}]: ${fraseInicialAleatoria}`, this.getNpcColor(npcData));
 
     const fraseEscolhida = dialogo.frases_heroi[Math.floor(Math.random() * dialogo.frases_heroi.length)];
     this.stateSvc.addLog(`> ${fraseEscolhida.texto}`, 'log-heroi');

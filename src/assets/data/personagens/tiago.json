@@ -2,7 +2,13 @@
     "tipo": "neutro",
     "fe": 40,
     "dialogos": {
-        "frase_inicial": "De que adianta falar? Palavras não aquecem o frio nem trazem o sol de volta. Ações importam.",
+        "frases_iniciais": [
+            "De que adianta falar? Palavras não aquecem o frio nem trazem o sol de volta. Ações importam.",
+            "Mais palavras... A rede está cheia delas. Mostra-me algo real, algo que faça a diferença.",
+            "Outra voz no vazio. O que queres? A esperança é um luxo que já não podemos pagar com meras conversas.",
+            "Falas de 'Luz' e 'fé'. São apenas dados. O que é que fazes, concretamente, para mudar alguma coisa?",
+            "O ruído nesta rede é constante. Prova-me que a tua não é apenas mais uma transmissão inútil."
+        ],
         "frases_heroi": [
             { "texto": "Uma palavra de esperança pode ser a ação mais poderosa de todas.", "efeito_fe_npc": 15 },
             { "texto": "Acredite na conexão. Ela é a nossa única arma contra o frio.", "efeito_fe_npc": 15 },
