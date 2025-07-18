@@ -29,6 +29,7 @@ export interface GameState {
   oracao_usada_na_fase_atual: boolean;
   crucifixo_ativo: boolean;
   rosario_ativo: boolean;
+  recent_log?: LogLine[]; 
 }
 
 export interface LogLine {

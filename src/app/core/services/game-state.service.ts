@@ -24,6 +24,7 @@ export class GameStateService {
     oracao_usada_na_fase_atual: false,
     crucifixo_ativo: false,
     rosario_ativo: false,
+    recent_log: [],
   };
 
   private readonly _gameState = new BehaviorSubject<GameState>(this.getInitialGameState());
@@ -64,11 +65,6 @@ export class GameStateService {
     this._terminalLog.next([...currentLog, { text, className }]);
   }
 
-  public addLogBlock(lines: LogLine[]) {
-    const currentLog = this._terminalLog.getValue();
-    this._terminalLog.next([...currentLog, ...lines]);
-  }
-
   public clearLog() {
     this._terminalLog.next([]);
   }
@@ -77,6 +73,11 @@ export class GameStateService {
     this._fileUploadTrigger.next();
   }
   
+  public addLogBlock(lines: LogLine[]) {
+    const currentLog = this._terminalLog.getValue();
+    this._terminalLog.next([...currentLog, ...lines]);
+  }
+
   public loadGameFromFile(file: File) {
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -84,9 +85,18 @@ export class GameStateService {
         const text = e.target?.result;
         if (typeof text === 'string') {
           const loadedState: GameState = JSON.parse(text);
-          loadedState.current_view = 'gameplay'; // Garante que o jogo vá para a tela certa
-          this.setGameState(loadedState);
+          loadedState.current_view = 'gameplay'; 
+          
           this.clearLog();
+
+          if (loadedState.recent_log && loadedState.recent_log.length > 0) {
+            this.addLogBlock(loadedState.recent_log);
+            this.addLog("--------------------------------------------------", "log-sistema");
+          }
+          
+          delete loadedState.recent_log;
+          this.setGameState(loadedState);
+
           this.addLog("Jogo carregado com sucesso a partir do ficheiro!", 'log-positivo');
         }
       } catch (error) {
@@ -97,7 +107,13 @@ export class GameStateService {
   }
 
   public exportSaveToFile() {
-    const dataStr = JSON.stringify(this.gameState, null, 2);
+    const HISTORICO_A_SALVAR = 10;
+    const logCompleto = this._terminalLog.getValue();
+    const logRecente = logCompleto.slice(-HISTORICO_A_SALVAR);
+
+    const estadoParaSalvar = { ...this.gameState, recent_log: logRecente };
+
+    const dataStr = JSON.stringify(estadoParaSalvar, null, 2);
     const dataBlob = new Blob([dataStr], { type: "application/json" });
     const url = window.URL.createObjectURL(dataBlob);
     const link = document.createElement('a');
