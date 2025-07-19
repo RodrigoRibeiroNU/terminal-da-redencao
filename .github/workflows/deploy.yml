@@ -2,13 +2,11 @@
 
 name: Deploy to GitHub Pages
 
-# Ativa o workflow em pushes para a branch "main"
 on:
   push:
     branches:
       - main
 
-# Permite que este job clone o repositório e crie um deployment do GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -16,44 +14,36 @@ permissions:
 
 jobs:
   build-and-deploy:
-    # Impede que jobs concorrentes de PRs e pushes sejam executados ao mesmo tempo
     concurrency:
       group: "pages"
       cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
-      # 1. Faz o checkout do teu repositório
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      # 2. Configura o Node.js
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
 
-      # 3. Instala as dependências do projeto
       - name: Install Dependencies 📦
         run: npm install
 
-      # 4. Compila o projeto Angular para produção
+      # --- LINHA CORRIGIDA ---
       - name: Build Project 🔨
-        run: ng build --configuration production --base-href /terminal-da-redencao/
+        run: npm run build -- --configuration production --base-href /terminal-da-redencao/
         # NOTA: Garante que 'terminal-da-redencao' é o nome exato do teu repositório
 
-      # 5. Configura o GitHub Pages (etapa de segurança recomendada)
       - name: Setup Pages 🛠️
         uses: actions/configure-pages@v5
 
-      # 6. Faz o upload dos artefactos compilados para o GitHub Pages
       - name: Upload Artifact 🚀
         uses: actions/upload-pages-artifact@v3
         with:
-          # O caminho deve corresponder ao outputPath no teu angular.json mais "/browser/"
           path: ./dist/terminal-da-redencao/browser
       
-      # 7. Publica no GitHub Pages
       - name: Deploy to GitHub Pages 🚀
         id: deployment
         uses: actions/deploy-pages@v4
