@@ -23,7 +23,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/terminal-da-redencao",
+              "baseHref": "/terminal-da-redencao/",
               "budgets": [
                 {
                   "type": "initial",

@@ -30,10 +30,10 @@ export class DataLoaderService {
 
         // Cria um array de Observables, um para cada arquivo JSON
         const requests: Observable<any>[] = [
-            this.http.get('/assets/data/config.json'),
-            this.http.get('/assets/data/fases.json'),
-            this.http.get('/assets/data/itens.json'),
-            ...characterNames.map(name => this.http.get(`/assets/data/personagens/${name}.json`))
+            this.http.get('assets/data/config.json'),
+            this.http.get('assets/data/fases.json'),
+            this.http.get('assets/data/itens.json'),
+            ...characterNames.map(name => this.http.get(`assets/data/personagens/${name}.json`))
         ];
 
         // forkJoin espera que todas as requisições HTTP terminem
