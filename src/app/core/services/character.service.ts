@@ -141,7 +141,9 @@ export class CharacterService {
         const proximoDialogo = npcData.dialogos[opcao.proximo_dialogo];
         this.setDialogoAtual(npcName, proximoDialogo);
         if (proximoDialogo.vitoria) {
-            this.flowSvc.endGame(true);
+            setTimeout(() => {
+                this.flowSvc.endGame(true);
+            }, 2500);
         }
     } else {
         this.stateSvc.setGameState({ dialogo_atual: null });

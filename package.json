@@ -1,6 +1,6 @@
 {
   "name": "terminal-da-redencao",
-  "version": "0.1.02",
+  "version": "0.0.107",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
