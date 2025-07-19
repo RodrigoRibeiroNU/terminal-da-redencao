@@ -31,13 +31,16 @@ jobs:
       - name: Install Dependencies 📦
         run: npm install
 
-      # --- NOVO PASSO ADICIONADO ---
       - name: Grant Execute Permission for NG 🔑
         run: chmod +x ./node_modules/.bin/ng
 
       - name: Build Project 🔨
         run: npm run build -- --configuration production --base-href /terminal-da-redencao/
         # NOTA: Garante que 'terminal-da-redencao' é o nome exato do teu repositório
+
+      # --- NOVO PASSO DE DEPURAÇÃO ---
+      - name: List output files 🔍
+        run: ls -R dist
 
       - name: Setup Pages 🛠️
         uses: actions/configure-pages@v5
@@ -46,8 +49,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # O caminho deve corresponder ao outputPath no teu angular.json
-          path: ./dist/terminal-da-redencao/
-      
+          path: ./dist/terminal-da-redencao/browser/
+
       - name: Deploy to GitHub Pages 🚀
         id: deployment
         uses: actions/deploy-pages@v4
