@@ -1,0 +1,50 @@
+# Ficheiro: .github/workflows/deploy.yml
+
+name: Deploy to GitHub Pages
+
+# Ativa o workflow em pushes para a branch "main"
+on:
+  push:
+    branches:
+      - main
+
+# Define as permissões para o token do GitHub para permitir a publicação
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Faz o checkout do teu repositório
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      # 2. Configura o Node.js
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Usa a versão do Node que o teu projeto requer
+          cache: 'npm'
+
+      # 3. Instala as dependências do projeto
+      - name: Install Dependencies 📦
+        run: npm install
+
+      # 4. Compila o projeto Angular
+      - name: Build Project 🔨
+        run: ng build --configuration production --base-href /terminal-da-redencao/
+        # NOTA: Substitui 'terminal-da-redencao' pelo nome do teu repositório
+
+      # 5. Faz o upload dos artefactos compilados para o GitHub Pages
+      - name: Upload Artifact 🚀
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./dist/terminal-da-redencao/browser # Caminho de saída padrão do Angular 17+
+      
+      # 6. Publica no GitHub Pages
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v2
