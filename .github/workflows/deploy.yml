@@ -45,7 +45,8 @@ jobs:
       - name: Upload Artifact 🚀
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/terminal-da-redencao/browser
+          # O caminho deve corresponder ao outputPath no teu angular.json
+          path: ./dist/terminal-da-redencao/
       
       - name: Deploy to GitHub Pages 🚀
         id: deployment
