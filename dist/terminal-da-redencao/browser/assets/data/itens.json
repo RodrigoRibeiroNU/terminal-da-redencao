@@ -1,0 +1,18 @@
+{
+    "oracao": {
+        "nome": "Oração",
+        "descricao": "Um sussurro de esperança. Aumenta sua Luz interior em 5%. Pode ser usada uma vez por fase."
+    },
+    "escritura": {
+        "nome": "Escritura Sagrada",
+        "descricao": "Um fragmento de texto antigo. Restaura completamente a Luz de um alvo. Uso único."
+    },
+    "crucifixo": {
+        "nome": "Crucifixo",
+        "descricao": "Símbolo de sacrifício. Reduz a atenção dos Agentes das Trevas enquanto estiver em uso."
+    },
+    "rosario": {
+        "nome": "Rosário",
+        "descricao": "Um cordão de contas sagradas. Protege você completamente da influência sombria dos Agentes."
+    }
+}

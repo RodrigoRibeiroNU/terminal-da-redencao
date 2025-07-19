@@ -1,0 +1,16 @@
+{
+    "tipo": "lider",
+    "fe": 100,
+    "dialogos": {
+        "inicial": {
+            "texto": "Você se tornou uma rocha nesta comunidade. Um ponto de luz firme na escuridão. Fale.",
+             "opcoes": [
+                {"texto": "Vim em busca da última estrofe.", "proximo_dialogo": "revelacao", "efeito_fe_heroi": 5}
+            ]
+        },
+        "revelacao": {
+            "texto": "O Amanhecer se aproxima. A última peça da canção é esta: '...e a verdadeira rede... une almas.'. Leve este Rosário. Que nenhuma treva o toque.",
+            "opcoes": [{"texto": "A canção está completa.", "adicionar_pista": "...e a verdadeira rede... une almas.", "adicionar_item": "rosario"}]
+        }
+    }
+}

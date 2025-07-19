@@ -1,0 +1,16 @@
+{
+    "tipo": "lider",
+    "fe": 100,
+    "dialogos": {
+        "inicial": {
+            "texto": "Eu conheço as sombras que você combate. A sua luz me lembra do caminho que escolhi. O que precisa?",
+             "opcoes": [
+                {"texto": "Procuro a terceira estrofe do Hino.", "proximo_dialogo": "revelacao", "efeito_fe_heroi": 5}
+            ]
+        },
+        "revelacao": {
+            "texto": "Uma verdade que aprendi a duras penas. Lembre-se: '...pois o amor é uma escolha...'. Use esta Escritura para mostrar isso a outros.",
+            "opcoes": [{"texto": "Não esquecerei.", "adicionar_pista": "...pois o amor é uma escolha...", "adicionar_item": "escritura"}]
+        }
+    }
+}

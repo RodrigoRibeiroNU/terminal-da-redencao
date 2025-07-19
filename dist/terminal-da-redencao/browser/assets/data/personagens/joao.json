@@ -1,0 +1,16 @@
+{
+    "tipo": "lider",
+    "fe": 100,
+    "dialogos": {
+        "inicial": {
+            "texto": "Sua presença aquece este terminal. Fale, portador(a) da esperança.",
+             "opcoes": [
+                {"texto": "Gabriel me enviou pela segunda estrofe.", "proximo_dialogo": "revelacao", "efeito_fe_heroi": 5}
+            ]
+        },
+        "revelacao": {
+            "texto": "Então continue a canção. Adicione isto: '...mas na recusa em se conectar...'. Que esta Escritura ilumine mentes que fraquejam.",
+            "opcoes": [{"texto": "Entendido.", "adicionar_pista": "...mas na recusa em se conectar...", "adicionar_item": "escritura"}]
+        }
+    }
+}

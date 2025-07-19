@@ -1,0 +1,42 @@
+{
+    "tipo": "neutro",
+    "fe": 50,
+    "dialogos": {
+        "frases_iniciais": [
+            "Acesso ao terminal médico. Apresente os seus sintomas ou o motivo da consulta. Por favor, seja objetivo.",
+            "Outra transmissão... Se procura uma cura milagrosa, lamento, mas trabalho com ciência, não com fé.",
+            "A saúde da rede é precária, assim como a nossa. O que te aflige? Fale claramente.",
+            "A esperança é um placebo poderoso, admito. Mas não substitui um diagnóstico correto. O que precisa?",
+            "Conexão estabelecida. Evite metáforas sobre 'luz' e 'escuridão'. Descreva o problema em termos claros."
+        ],
+        "frases_heroi": [
+            { "texto": "A cura não é lógica, é conexão. A Luz de um aquece o outro.", "efeito_fe_npc": 15 },
+            { "texto": "O diagnóstico está correto, mas o tratamento que você esqueceu foi a fé.", "efeito_fe_npc": 15 },
+            { "texto": "Considere a esperança como a primeira dose do tratamento.", "efeito_fe_npc": 20 },
+            { "texto": "A medicina cura o corpo, mas a fé cura a alma digital. Ambas são necessárias.", "efeito_fe_npc": 15 },
+            { "texto": "A prova da cura está na mudança que você pode sentir em si mesmo agora.", "efeito_fe_npc": 20 },
+            { "texto": "Não há ensaio clínico para a Luz, apenas a experiência pessoal.", "efeito_fe_npc": 15 },
+            { "texto": "A doença é o isolamento. A cura é esta conversa.", "efeito_fe_npc": 25 },
+            { "texto": "Até o corpo mais saudável adoece num mundo sem sol. Precisamos de uma luz interior.", "efeito_fe_npc": 10 },
+            { "texto": "A sua lógica é valiosa, mas precisa de ser guiada pela compaixão.", "efeito_fe_npc": 10 },
+            { "texto": "A fé não é o remédio, doutor. É a vontade de viver que torna o remédio eficaz.", "efeito_fe_npc": 20 },
+            { "texto": "Você cura o corpo. Nós tentamos curar o espírito. Ambos são essenciais para a sobrevivência.", "efeito_fe_npc": 25 },
+            { "texto": "A sua ciência dá-nos tempo. A nossa fé dá-nos um motivo para usar esse tempo.", "efeito_fe_npc": 15 },
+            { "texto": "Considere a esperança como parte do tratamento. Um protocolo que não pode ser escrito, mas pode ser partilhado.", "efeito_fe_npc": 20 },
+            { "texto": "Não estou aqui para um milagre, mas para te lembrar que o seu trabalho é um.", "efeito_fe_npc": 15 },
+            { "texto": "Juntos, podemos criar uma epidemia de esperança.", "efeito_fe_npc": 25 }
+        ],
+        "respostas_agradecimento": [
+            "Uma... terapia de rede? A hipótese é fascinante. Obrigado.",
+            "Um contágio de esperança... Gosto da sua metodologia. Sinto-me melhor.",
+            "Os sintomas do medo estão a diminuir. O seu tratamento funciona.",
+            "Um novo diagnóstico. Promissor. Agradeço a consulta.",
+            "A minha análise estava incompleta. Você trouxe a variável que faltava. Obrigado.",
+            "Diagnóstico: a sua perspetiva é... saudável. Obrigado.",
+            "Uma variável inesperada, mas os resultados são positivos. Continue.",
+            "A sua lógica é sólida. Admito a sua importância no processo de cura.",
+            "Sinto um aumento no meu próprio moral. Efeito... interessante.",
+            "Obrigado. A sua consulta foi benéfica."
+        ]
+    }
+}

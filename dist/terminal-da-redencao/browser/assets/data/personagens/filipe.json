@@ -1,0 +1,42 @@
+{
+    "tipo": "neutro",
+    "fe": 45,
+    "dialogos": {
+        "frases_iniciais": [
+            "Para quê o esforço? Já vi muitos como você, cheios de palavras bonitas. O fim é sempre o mesmo: silêncio.",
+            "Outra voz a pregar no deserto digital. O que te faz pensar que serás diferente?",
+            "Luz? A única luz que conheci foi a do sol, e ela se foi. Não me fales de imitações baratas.",
+            "A esperança é o primeiro passo para a desilusão. Eu prefiro a realidade, por mais dura que seja.",
+            "Conversar... sim. E depois? As palavras desaparecem. A escuridão fica."
+        ],
+        "frases_heroi": [
+            { "texto": "O calor que você procura não vem de cima, mas de dentro. De nós. Sinta a esperança na rede.", "efeito_fe_npc": 15 },
+            { "texto": "O sinal real é esta conversa. Duas almas a conectarem-se contra a escuridão.", "efeito_fe_npc": 15 },
+            { "texto": "Feche os olhos e ouça. A prova não é para ser vista, mas sentida.", "efeito_fe_npc": 20 },
+            { "texto": "A Luz não é um objeto, é uma direção. Vamos caminhar juntos.", "efeito_fe_npc": 15 },
+            { "texto": "A mudança que você vê nos outros... essa é a prova tangível.", "efeito_fe_npc": 20 },
+            { "texto": "Eu não posso mostrar-lhe o sol, mas posso partilhar a minha chama consigo.", "efeito_fe_npc": 25 },
+            { "texto": "A sua exigência por provas é uma forma de fé. Fé na lógica. Expanda-a.", "efeito_fe_npc": 10 },
+            { "texto": "O milagre é que ainda estamos aqui, a conversar, a resistir.", "efeito_fe_npc": 10 },
+            { "texto": "Dê-me a sua mão. Sinta a minha fé. Isso é real.", "efeito_fe_npc": 20 },
+            { "texto": "Acredite em mim, e eu acreditarei em si. Essa é a nossa Luz.", "efeito_fe_npc": 25 },
+            { "texto": "O silêncio só vence se todos nos calarmos. A minha voz junta-se à sua.", "efeito_fe_npc": 25 },
+            { "texto": "Não sou diferente. Sou apenas mais um que se recusa a desistir. Junte-se a mim.", "efeito_fe_npc": 20 },
+            { "texto": "Esta Luz não é uma imitação. É a memória do sol que guardamos nos nossos corações.", "efeito_fe_npc": 20 },
+            { "texto": "A realidade é que ainda estamos aqui, a conversar. Isso não é uma vitória?", "efeito_fe_npc": 15 },
+            { "texto": "A desilusão só vem para quem espera passivamente. Nós agimos.", "efeito_fe_npc": 15 }
+        ],
+        "respostas_agradecimento": [
+            "O calor... dos outros? É sutil, mas... acho que sinto. É o suficiente por agora.",
+            "Uma chama partilhada... Sinto-a. Obrigado.",
+            "Um milagre na resistência... Gosto disso. A minha perspetiva mudou.",
+            "A prova está na conexão... Fascinante. E reconfortante.",
+            "A sua fé é tangível. Agradeço por me deixar senti-la.",
+            "Talvez... talvez ainda haja uma hipótese.",
+            "As suas palavras ecoam... de uma forma estranha. Não é desagradável.",
+            "Você é teimoso. Respeito isso.",
+            "Um pouco menos de peso nos ombros. Obrigado.",
+            "Conseguiste plantar uma semente de dúvida na minha certeza. Curioso."
+        ]
+    }
+}

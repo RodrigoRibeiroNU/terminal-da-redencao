@@ -1,0 +1,32 @@
+{
+    "tipo": "neutro",
+    "fe": 40,
+    "dialogos": {
+        "frases_iniciais": [
+            "De que adianta falar? Palavras não aquecem o frio nem trazem o sol de volta. Ações importam.",
+            "Mais palavras... A rede está cheia delas. Mostra-me algo real, algo que faça a diferença.",
+            "Outra voz no vazio. O que queres? A esperança é um luxo que já não podemos pagar com meras conversas.",
+            "Falas de 'Luz' e 'fé'. São apenas dados. O que é que fazes, concretamente, para mudar alguma coisa?",
+            "O ruído nesta rede é constante. Prova-me que a tua não é apenas mais uma transmissão inútil."
+        ],
+        "frases_heroi": [
+            { "texto": "Uma palavra de esperança pode ser a ação mais poderosa de todas.", "efeito_fe_npc": 15 },
+            { "texto": "Acredite na conexão. Ela é a nossa única arma contra o frio.", "efeito_fe_npc": 15 },
+            { "texto": "A sua força inspira outros, mesmo que você não veja. Isso não é uma ação?", "efeito_fe_npc": 20 },
+            { "texto": "Cada terminal que se mantém online é um ato de rebeldia contra a escuridão.", "efeito_fe_npc": 15 },
+            { "texto": "Não estamos a construir com tijolos, mas com fé. É uma obra mais duradoura.", "efeito_fe_npc": 20 },
+            { "texto": "O silêncio é a verdadeira morte. A nossa conversa é um ato de vida.", "efeito_fe_npc": 15 },
+            { "texto": "A sua dúvida é compreensível, mas não deixe que ela se torne a sua única ação.", "efeito_fe_npc": 10 },
+            { "texto": "A Luz não pede que você a veja, apenas que ajude os outros a senti-la.", "efeito_fe_npc": 20 },
+            { "texto": "A sua presença nesta rede já é uma obra de resistência.", "efeito_fe_npc": 10 },
+            { "texto": "Juntos, a nossa fé torna-se uma ação que pode mudar este mundo.", "efeito_fe_npc": 25 }
+        ],
+        "respostas_agradecimento": [
+            "Obrigado... sinto uma centelha. Continue.",
+            "As suas palavras... fazem sentido. Sinto-me um pouco mais forte.",
+            "Uma nova perspetiva. Agradeço por partilhá-la comigo.",
+            "Isso... isso ajuda. Mais do que eu esperava. Obrigado.",
+            "A minha fé foi reacendida. Obrigado, peregrino(a)."
+        ]
+    }
+}

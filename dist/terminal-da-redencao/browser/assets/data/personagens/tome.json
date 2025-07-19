@@ -1,0 +1,26 @@
+{
+    "tipo": "lider",
+    "fe": 100,
+    "dialogos": {
+        "inicial": {
+            "texto": "Eu duvidei que a Luz pudesse retornar. Sua determinação prova que eu estava errado. O que deseja?",
+            "opcoes": [
+                {
+                    "texto": "Busco a quarta estrofe.",
+                    "proximo_dialogo": "revelacao",
+                    "efeito_fe_heroi": 5
+                }
+            ]
+        },
+        "revelacao": {
+            "texto": "A dúvida é apenas o início da sabedoria. Medite nisto: '...que se manifesta na ação...'. Que este Crucifixo o proteja da dúvida que os Agentes espalham.",
+            "opcoes": [
+                {
+                    "texto": "Faz sentido.",
+                    "adicionar_pista": "...que se manifesta na ação...",
+                    "adicionar_item": "crucifixo"
+                }
+            ]
+        }
+    }
+}

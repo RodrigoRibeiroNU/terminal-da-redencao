@@ -1,0 +1,103 @@
+{
+    "tipo": "guia",
+    "fe": 100,
+    "dialogos": {
+        "saudacao": "Bem-vindo de volta, {jogador_nome}. Neste mundo sem sol, cada terminal aceso é um farol.",
+        "fase_1_inicio": {
+            "texto": "Para começar, você precisa ser a centelha. Encontre 1 alma vacilante e traga sua Luz de volta para 80%. Depois, retorne a mim.",
+            "opcoes": [
+                {
+                    "texto": "A Luz prevalecerá."
+                }
+            ]
+        },
+        "fase_1_fim": {
+            "texto": "Você conseguiu. Uma nova luz brilha na rede por sua causa. Agora, procure a líder Maria. Ela guarda a primeira estrofe do Hino do Amanhecer.",
+            "opcoes": [
+                {
+                    "texto": "Irei encontrá-la."
+                }
+            ]
+        },
+        "fase_2_inicio": {
+            "texto": "A esperança cresce, mas os sussurros das trevas também. Precisamos de mais luz. Eleve um total de 2 almas a 80% e volte.",
+            "opcoes": [
+                {
+                    "texto": "Assim será feito."
+                }
+            ]
+        },
+        "fase_2_fim": {
+            "texto": "Excelente. A sua luz se espalha como uma onda. Procure João, o líder que fala do amor perdido. Ele tem a segunda estrofe.",
+            "opcoes": [
+                {
+                    "texto": "A caminho."
+                }
+            ]
+        },
+        "fase_3_inicio": {
+            "texto": "Bom. Três luzes são mais fortes que duas. Encontre mais uma alma, eleve um total de 3 para 80% de Luz.",
+            "opcoes": [
+                {
+                    "texto": "A Luz se espalhará."
+                }
+            ]
+        },
+        "fase_3_fim": {
+            "texto": "Impressionante. Sua determinação é uma arma. Vá até Paulo, o líder que já caminhou nas sombras. Ele guarda a terceira estrofe.",
+            "opcoes": [
+                {
+                    "texto": "Entendido."
+                }
+            ]
+        },
+        "fase_4_inicio": {
+            "texto": "Os Agentes sentem a nossa presença. Precisamos de mais faróis. Eleve um total de 4 almas para 80%.",
+            "opcoes": [
+                {
+                    "texto": "Eles não vão nos parar."
+                }
+            ]
+        },
+        "fase_4_fim": {
+            "texto": "Sua fé inspira até os mais céticos. O líder Tomé, que só acreditava no que via, agora vê a sua luz. Ele tem a quarta estrofe.",
+            "opcoes": [
+                {
+                    "texto": "Irei falar com ele."
+                }
+            ]
+        },
+        "fase_5_inicio": {
+            "texto": "Este é o teste final antes do fim. A rede precisa de 5 luzes firmes. Traga um total de 5 almas para 80% de fé.",
+            "opcoes": [
+                {
+                    "texto": "Pelo Amanhecer."
+                }
+            ]
+        },
+        "fase_5_fim": {
+            "texto": "Você se tornou um pilar nesta rede de esperança. Procure Pedro, a nossa rocha, o líder final. Ele lhe entregará a última estrofe do Hino.",
+            "opcoes": [
+                {
+                    "texto": "A jornada está quase no fim."
+                }
+            ]
+        },
+        "fase_final_espera": {
+            "texto": "Você reuniu o Hino do Amanhecer. Mas para que ele seja ouvido, a rede precisa estar em harmonia. A Luz média de todos deve superar 80% para que o Sábio Bento desperte.",
+            "opcoes": [
+                {
+                    "texto": "Vamos iluminar a rede."
+                }
+            ]
+        },
+        "fase_final_pronto": {
+            "texto": "A rede ressoa em harmonia. O Sábio Bento despertou e espera por você. Leve o Hino a ele.",
+            "opcoes": [
+                {
+                    "texto": "É a hora."
+                }
+            ]
+        }
+    }
+}

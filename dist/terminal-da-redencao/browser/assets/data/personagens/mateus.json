@@ -1,0 +1,42 @@
+{
+    "tipo": "neutro",
+    "fe": 35,
+    "dialogos": {
+        "frases_iniciais": [
+            "Acesso... concedido. Fale, mas seja breve. O meu trabalho é coletar dados, não opiniões.",
+            "Outra conexão. Espero que tenha algo mais útil do que rumores. A rede está cheia de desinformação.",
+            "Identifique-se. A sua transmissão está a consumir largura de banda. Que informação verificável me traz?",
+            "Fé? É uma variável que não consigo quantificar. Apresente-me factos, não sentimentos.",
+            "A sua insistência é... curiosa. O que procura nos meus registos que ainda não tenha sido corrompido pela escuridão?"
+        ],
+        "frases_heroi": [
+            { "texto": "A esperança não é um número. É o que nos dá forças para continuar a contar.", "efeito_fe_npc": 20 },
+            { "texto": "Algumas variáveis não podem ser quantificadas. A fé é uma delas.", "efeito_fe_npc": 15 },
+            { "texto": "A sua lógica é uma ferramenta, não uma prisão. Olhe para além dos números.", "efeito_fe_npc": 15 },
+            { "texto": "Cada alma que reacendemos é um dado que altera a equação a nosso favor.", "efeito_fe_npc": 20 },
+            { "texto": "O valor de uma vida não pode ser calculado, apenas afirmado.", "efeito_fe_npc": 15 },
+            { "texto": "A estatística do desespero só pode ser combatida com atos de fé ilógicos.", "efeito_fe_npc": 25 },
+            { "texto": "Considere a Luz como um axioma. Uma verdade que não precisa de ser provada.", "efeito_fe_npc": 10 },
+            { "texto": "Os seus cálculos descrevem o mundo como ele é, mas a fé descreve como ele pode ser.", "efeito_fe_npc": 20 },
+            { "texto": "O que você sente ao falar comigo? Isso pode ser medido?", "efeito_fe_npc": 10 },
+            { "texto": "Vamos criar uma nova estatística: a da esperança.", "efeito_fe_npc": 25 },
+            { "texto": "Os dados mostram a escuridão, mas a fé mostra-nos a saída.", "efeito_fe_npc": 15 },
+            { "texto": "A esperança não pode ser medida, mas pode ser sentida. Sinta a minha.", "efeito_fe_npc": 20 },
+            { "texto": "Cada ato de bondade é um dado que a escuridão não pode apagar.", "efeito_fe_npc": 15 },
+            { "texto": "Você arquiva o passado. Nós estamos a construir o futuro. Ajude-nos.", "efeito_fe_npc": 25 },
+            { "texto": "Não sou um rumor. Sou uma prova de que a resistência é real.", "efeito_fe_npc": 20 }        
+        ],
+        "respostas_agradecimento": [
+            "Uma variável que eu não considerei... Talvez a equação esteja incompleta. Obrigado.",
+            "Interessante. A minha lógica está a ser desafiada. Agradeço a perspetiva.",
+            "Sinto... um erro de arredondamento na minha tristeza. Obrigado.",
+            "Os seus dados são convincentes. A minha esperança aumentou.",
+            "Você recalibrou os meus parâmetros. A minha Luz está mais forte.",
+            "Dado... interessante. Processando.",
+            "A sua lógica é... invulgar. Mas não a descarto.",
+            "Registo atualizado. A sua variável 'esperança' foi anotada.",
+            "Obrigado. A sua transmissão foi... útil.",
+            "Anomalia detectada nos meus sistemas... acho que é gratidão."
+        ]
+    }
+}
