@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { GameStateService } from './game-state.service';
 import { CharacterService } from './character.service';
 import { GameFlowService } from './game-flow.service';
+import { SoundService } from './sound.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class ItemService {
 
   constructor(
     private stateSvc: GameStateService,
-    private flowSvc: GameFlowService
+    private flowSvc: GameFlowService,
+    private soundSvc: SoundService
     ) { }
 
   private normalizeString(str: string): string {
@@ -60,8 +62,15 @@ export class ItemService {
       this.stateSvc.addLog('A sua Oração já foi usada nesta fase. Ela se revigorará na próxima.', 'log-negativo');
       return;
     }
-    const novaFe = Math.min(100, this.stateSvc.gameState.heroi_fe_percent + 5);
-    this.stateSvc.setGameState({ heroi_fe_percent: novaFe, oracao_usada_na_fase_atual: true });
+    const feAtual = this.stateSvc.gameState.heroi_fe_percent;
+    const novaFe = Math.min(100, feAtual + 25);
+    if (novaFe > feAtual) {
+        this.soundSvc.playSfx('luz'); // <-- TOCA SOM DE LUZ
+    }
+    this.stateSvc.setGameState({ 
+        heroi_fe_percent: novaFe,
+        oracao_usada_na_fase_atual: true 
+    });
     this.stateSvc.addLog(`Você profere a Oração e sente sua fé aumentar para ${novaFe.toFixed(0)}%.`, 'log-positivo');
   }
 

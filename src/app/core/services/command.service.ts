@@ -4,17 +4,21 @@ import { GameFlowService } from './game-flow.service';
 import { CharacterService } from './character.service';
 import { ItemService } from './item.service';
 import { InactivityService } from './inactivity.service';
+import { SoundService } from './sound.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommandService {
+  private audioInitialized = false; 
+
   constructor(
     private stateSvc: GameStateService,
     private flowSvc: GameFlowService,
     private characterSvc: CharacterService,
     private itemSvc: ItemService,
-    private inactivitySvc: InactivityService // A inatividade ainda pode ser relevante aqui
+    private inactivitySvc: InactivityService,
+    private soundSvc: SoundService
   ) { }
 
   private normalizeString(str: string): string {
@@ -24,7 +28,17 @@ export class CommandService {
       .replace(/[\u0300-\u036f]/g, "");
   }
 
+  private initializeAudio() {
+    if (!this.audioInitialized) {
+      // Passa a configuração inicial para o serviço de som
+      this.soundSvc.init(this.stateSvc.gameData.config.audio);
+      this.audioInitialized = true;
+    }
+  }
+
   public processCommand(command: string) {
+    this.initializeAudio();
+
     const gameState = this.stateSvc.gameState;
     if (gameState.game_over) return;
 
@@ -59,7 +73,7 @@ export class CommandService {
 
     const comandos: { [key: string]: Function } = {
       "novo": () => this.flowSvc.startOpeningSequence(),
-      "ajuda": () => this.stateSvc.addLog("Comandos: falar, usar, online, pistas, inventario, salvar, carregar, sair", 'log-positivo'),
+      "ajuda": () => this.stateSvc.addLog("Comandos: falar, usar, online, pistas, inventario, salvar, carregar, config, sair", 'log-positivo'),
       "online": () => this.listarPersonagensOnline(),
       "pistas": () => this.listarPistas(),
       "inventario": () => this.listarInventario(),
@@ -67,6 +81,7 @@ export class CommandService {
       "responder": () => this.characterSvc.processarRespostaDialogo(command),
       "salvar": () => this.stateSvc.exportSaveToFile(),
       "carregar": () => this.stateSvc.triggerFileUpload(),
+      "config": () => this.flowSvc.abrirConfiguracoes(),
       "usar": () => this.itemSvc.usarItem(argumento),
       "sair": () => this.flowSvc.resetGame()
     };
@@ -75,6 +90,7 @@ export class CommandService {
       comandos[acao]();
     } else {
       this.stateSvc.addLog(`Comando não reconhecido: ${acao}`, 'log-negativo');
+      this.soundSvc.playSfx('corrupcao');
     }
 
     // A ação do agente só ocorre fora de diálogos e ações pendentes

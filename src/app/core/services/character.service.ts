@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { GameStateService } from './game-state.service';
 import { GameFlowService } from './game-flow.service';
 import { NpcData, LogLine } from '../models/game.interfaces';
+import { SoundService } from './sound.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class CharacterService {
 
   constructor(
     private stateSvc: GameStateService,
-    private flowSvc: GameFlowService
+    private flowSvc: GameFlowService,
+    private soundSvc: SoundService
   ) { }
 
   public iniciarDialogo(npcName: string) {
@@ -108,14 +110,15 @@ export class CharacterService {
     this.processarInteracaoFe(npcData, npcName, 0, opcao.efeito_fe_heroi);
 
     if (opcao.adicionar_item) {
-      const inventarioAtual = { ...this.stateSvc.gameState.heroi_inventory };
-      const itemKey = opcao.adicionar_item;
-      
-      inventarioAtual[itemKey] = (inventarioAtual[itemKey] || 0) + 1;
+        const inventarioAtual = { ...this.stateSvc.gameState.heroi_inventory };
+        const itemKey = opcao.adicionar_item;
+        
+        inventarioAtual[itemKey] = (inventarioAtual[itemKey] || 0) + 1;
 
-      this.stateSvc.setGameState({ heroi_inventory: inventarioAtual });
-      const nomeItem = this.stateSvc.gameData.itens[itemKey].nome;
-      this.stateSvc.addLog(`[SISTEMA]: Você recebeu '${nomeItem}'! (Total: ${inventarioAtual[itemKey]})`, 'log-positivo');
+        this.stateSvc.setGameState({ heroi_inventory: inventarioAtual });
+        const nomeItem = this.stateSvc.gameData.itens[itemKey].nome;
+        this.stateSvc.addLog(`[SISTEMA]: Você recebeu '${nomeItem}'! (Total: ${inventarioAtual[itemKey]})`, 'log-positivo');
+        this.soundSvc.playSfx('sucesso');
     }
 
     if (opcao.adicionar_pista && !this.stateSvc.gameState.pistas.includes(opcao.adicionar_pista)) {
@@ -182,6 +185,7 @@ export class CharacterService {
     
     setTimeout(() => {
       this.flowSvc.ativarPersonagensPorFase();
+      this.flowSvc.startGameplayMusic(); // Inicia a música de fundo
       if (gameData.orientacao_inicial_frases) {
         gameData.orientacao_inicial_frases.forEach((frase: string) => this.stateSvc.addLog(frase, 'log-sistema'));
       }
@@ -190,9 +194,15 @@ export class CharacterService {
   }
   
   public processarInteracaoFe(npcState: NpcData, npcName: string, efeitoDialogo: number = 0, efeitoFeHeroi: number = 0): boolean {
+    let tocouSom = false;
+
     if (npcState.tipo === 'guia' || npcState.tipo === 'agente' || npcState.tipo === 'lider' || npcState.tipo === 'sabio') {
         if (efeitoFeHeroi) {
-            const novaFeHeroi = Math.min(100, this.stateSvc.gameState.heroi_fe_percent + efeitoFeHeroi);
+            const feAtual = this.stateSvc.gameState.heroi_fe_percent;
+            const novaFeHeroi = Math.min(100, feAtual + efeitoFeHeroi);
+            if (novaFeHeroi > feAtual) {
+                this.soundSvc.playSfx('luz');
+            }
             this.stateSvc.setGameState({ heroi_fe_percent: novaFeHeroi });
             this.stateSvc.addLog(`[FÉ]: Sua conversa com ${npcName.toUpperCase()} fortaleceu sua fé para ${novaFeHeroi.toFixed(0)}%.`, 'log-positivo');
         }
@@ -204,8 +214,17 @@ export class CharacterService {
     const diferenca = this.stateSvc.gameState.heroi_fe_percent - npcState.fe;
     const mudanca = diferenca / 2;
     
-    const novaFeHeroi = Math.max(0, Math.min(100, this.stateSvc.gameState.heroi_fe_percent - mudanca));
+    const feHeroiAntes = this.stateSvc.gameState.heroi_fe_percent;
+    const novaFeHeroi = Math.max(0, Math.min(100, feHeroiAntes - mudanca));
     npcState.fe = Math.max(0, Math.min(100, npcState.fe + mudanca));
+
+    if (novaFeHeroi > feHeroiAntes) {
+        this.soundSvc.playSfx('luz');
+        tocouSom = true;
+    }
+    if (npcState.fe > feNpcAntes && !tocouSom) {
+        this.soundSvc.playSfx('luz');
+    }
 
     this.stateSvc.setGameState({ heroi_fe_percent: novaFeHeroi, personagens_atuais: this.stateSvc.gameState.personagens_atuais });
     
@@ -234,6 +253,7 @@ export class CharacterService {
       const alvo = neutrosAtivos[Math.floor(Math.random() * neutrosAtivos.length)];
       const npcState = gameState.personagens_atuais[alvo];
       this.stateSvc.addLog(`[${agente.toUpperCase()}]: A dúvida é uma variável... e a sua está a aumentar, ${alvo.toUpperCase()}.`, 'log-agente');
+      this.soundSvc.playSfx('corrupcao');
       const novaFe = npcState.fe / 2;
       npcState.fe = novaFe;
       this.stateSvc.addLog(`[SISTEMA]: A fé de ${alvo.toUpperCase()} diminuiu para ${novaFe.toFixed(0)}%.`, 'log-negativo');

@@ -40,6 +40,12 @@
   flex-direction: column;
 }
 
+#terminal-output p {
+  margin: 0;
+  padding: 0;
+  white-space: pre; /* ADICIONAR ESTA LINHA */
+}
+
 #status-bar {
   border-bottom: 1px solid #32cd32;
   padding-bottom: 5px;

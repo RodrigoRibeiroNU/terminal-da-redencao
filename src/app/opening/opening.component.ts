@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SoundService } from '../core/services/sound.service';
 
 @Component({
   selector: 'app-opening',
@@ -25,7 +26,10 @@ export class OpeningComponent implements OnInit, OnDestroy {
   animationStep = 'power-on';
   private timers: any[] = [];
 
+  constructor(private soundSvc: SoundService) {}
+  
   ngOnInit() {
+    this.soundSvc.playMusic('abertura');
     // Inicia a sequência de animação
     const powerOnTimer = setTimeout(() => {
       this.animationStep = 'scanline';
@@ -38,6 +42,7 @@ export class OpeningComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.soundSvc.stopMusic();
     // Limpa todos os timers para evitar memory leaks
     this.timers.forEach(clearTimeout);
   }

@@ -24,6 +24,7 @@ export class GameStateService {
     oracao_usada_na_fase_atual: false,
     crucifixo_ativo: false,
     rosario_ativo: false,
+    previous_view: undefined,
     recent_log: [],
   };
 

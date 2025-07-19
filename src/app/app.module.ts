@@ -17,6 +17,8 @@ import { InactivityService } from './core/services/inactivity.service';
 import { GameFlowService } from './core/services/game-flow.service';
 import { CharacterService } from './core/services/character.service';
 import { ItemService } from './core/services/item.service';
+import { SoundService } from './core/services/sound.service';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { ItemService } from './core/services/item.service';
     TitleScreenComponent,
     OpeningComponent,
     EndingComponent,
-    ScreensaverComponent
+    ScreensaverComponent,
+    SettingsComponent 
   ],
   providers: [
     // Fornece todos os serviços para a aplicação
@@ -40,7 +43,8 @@ import { ItemService } from './core/services/item.service';
     InactivityService,
     GameFlowService,
     CharacterService,
-    ItemService
+    ItemService,
+    SoundService
   ],
   bootstrap: [AppComponent] // O componente inicial a ser carregado
 })

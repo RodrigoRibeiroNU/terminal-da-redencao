@@ -1,5 +1,4 @@
-// *** ALTERAÇÃO AQUI ***
-export type GameView = 'loading' | 'title' | 'opening' | 'menu' | 'gameplay' | 'ending';
+export type GameView = 'loading' | 'title' | 'opening' | 'menu' | 'gameplay' | 'ending' | 'settings';
 
 export interface NpcData {
   tipo: 'guia' | 'agente' | 'neutro' | 'lider' | 'sabio';
@@ -29,6 +28,7 @@ export interface GameState {
   oracao_usada_na_fase_atual: boolean;
   crucifixo_ativo: boolean;
   rosario_ativo: boolean;
+  previous_view?: GameView;
   recent_log?: LogLine[]; 
 }
 

@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { GameStateService } from './game-state.service';
-import { LogLine, NpcData } from '../models/game.interfaces'; // Importe LogLine
+import { LogLine, NpcData } from '../models/game.interfaces';
 import packageInfo from '../../../../package.json';
-import { CharacterService } from './character.service';
+import { SoundService } from './sound.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class GameFlowService {
-    constructor(private stateSvc: GameStateService) { }
+    constructor(private stateSvc: GameStateService, private soundSvc: SoundService) { }
 
     public initialize() {
         this.stateSvc.setGameState({ current_view: 'title' });
@@ -31,20 +31,62 @@ export class GameFlowService {
         this.stateSvc.clearLog();
         this.stateSvc.addLog("Iniciando novo jogo...", 'log-sistema');
     }
+    
+    public startGameplayMusic() {
+        this.soundSvc.playMusic('urgente');
+    }
 
     public resetGame() {
         const initialState = this.stateSvc.getInitialGameState();
-        
         this.stateSvc.setGameState({ ...initialState, current_view: 'menu' });
-        
         this.showMainMenuText();
+    }
+
+    public abrirConfiguracoes(): void {
+        const currentView = this.stateSvc.gameState.current_view;
+        this.stateSvc.setGameState({ 
+            current_view: 'settings',
+            previous_view: currentView 
+        });
+    }
+
+    public voltarParaMenu(): void {
+        const targetView = this.stateSvc.gameState.previous_view || 'menu';
+        this.stateSvc.setGameState({ current_view: targetView, previous_view: undefined });
+
+        if (targetView === 'menu') {
+            this.showMainMenuText();
+        }
     }
 
     private showMainMenuText() {
         this.stateSvc.clearLog();
-        this.stateSvc.addLog(`Terminal da Redenção v${packageInfo.version}`, 'log-sistema');
-        this.stateSvc.addLog("\nDigite 'novo' para iniciar, 'carregar' para enviar um arquivo.", 'log-sistema');
+        const menuScreen: LogLine[] = [
+            { text: ``, className: 'log-sistema' },
+            { text: `           +-------------------------------------------------------------+`, className: 'log-sistema' },
+            { text: `           |                                                             |`, className: 'log-sistema' },
+            { text: `           |                     TERMINAL DA REDENÇÃO                    |`, className: 'log-positivo' },
+            { text: `           |                                                             |`, className: 'log-sistema' },
+            { text: `           |                             +++                             |`, className: 'log-heroi' },
+            { text: `           |                             +++                             |`, className: 'log-heroi' },
+            { text: `           |                        +++++++++++++                        |`, className: 'log-heroi' },
+            { text: `           |                        +++++++++++++                        |`, className: 'log-heroi' },
+            { text: `           |                             +++                             |`, className: 'log-heroi' },
+            { text: `           |                             +++                             |`, className: 'log-heroi' },
+            { text: `           |                             +++                             |`, className: 'log-heroi' },
+            { text: `           |                             +++                             |`, className: 'log-heroi' },
+            { text: `           |                             +++                             |`, className: 'log-heroi' },
+            { text: `           |                                                             |`, className: 'log-sistema' },
+            { text: `           |              [novo] [carregar] [config] [sair]               |`, className: 'log-sistema' },
+            { text: `           |                                                             |`, className: 'log-sistema' },
+            { text: `           +-------------------------------------------------------------+`, className: 'log-sistema' },
+            { text: ``, className: 'log-sistema' },
+            { text: `           Versão ${packageInfo.version}`, className: 'log-sistema' },
+            { text: `           Digite um comando para continuar.`, className: 'log-sistema' }
+        ];
+        this.stateSvc.addLogBlock(menuScreen);
     }
+    
     public getCurrentObjectiveText(): string {
         const gameState = this.stateSvc.gameState;
         const gameData = this.stateSvc.gameData;
@@ -60,7 +102,7 @@ export class GameFlowService {
                 ? phaseData.objetivo_lider_indice
                 : phaseData.objetivo_conversao_indice;
         } else {
-            const avgFaith = this.getAverageFaith(); // Agora chama o método local
+            const avgFaith = this.getAverageFaith();
             objetivoIndex = avgFaith > 80
                 ? phaseData.objetivo_final_indice
                 : phaseData.objetivo_espera_indice;
@@ -83,11 +125,13 @@ export class GameFlowService {
 
     public endGame(isVictory: boolean, customMessage?: string) {
         if (this.stateSvc.gameState.game_over) return;
+        this.soundSvc.stopMusic();
         this.stateSvc.addLog("--------------------------------------------------", "log-sistema");
         if (isVictory) {
-        this.stateSvc.addLog(this.stateSvc.gameData.finais.vitoria, 'log-positivo');
+            this.soundSvc.playMusic('hino');
+            this.stateSvc.addLog(this.stateSvc.gameData.finais.vitoria, 'log-positivo');
         } else {
-        this.stateSvc.addLog(customMessage || this.stateSvc.gameData.finais.fe_baixa, 'log-negativo');
+            this.stateSvc.addLog(customMessage || this.stateSvc.gameData.finais.fe_baixa, 'log-negativo');
         }
         this.stateSvc.setGameState({ game_over: true, dialogo_atual: null, current_view: 'ending' });
         localStorage.removeItem('redencao_autosave');
@@ -97,7 +141,6 @@ export class GameFlowService {
         const gameState = this.stateSvc.gameState;
         const personagens = Object.values(gameState.personagens_atuais);
         if (personagens.length === 0) return gameState.heroi_fe_percent;
-
         const totalFaith = personagens.reduce((sum, p) => sum + p.fe, gameState.heroi_fe_percent);
         return totalFaith / (personagens.length + 1);
     }

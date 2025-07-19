@@ -4,6 +4,8 @@
   
   <app-opening *ngIf="gameState.current_view === 'opening'" (openingComplete)="onOpeningComplete()"></app-opening>
 
+  <app-settings *ngIf="gameState.current_view === 'settings'"></app-settings>
+
   <div id="terminal-wrapper" *ngIf="(gameState.current_view === 'menu' || gameState.current_view === 'gameplay') && !gameState.game_over">
     <app-screensaver *ngIf="isScreensaverActive$ | async"></app-screensaver>
     <div id="terminal" (click)="focusInput()" [hidden]="isScreensaverActive$ | async">

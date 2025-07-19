@@ -7,5 +7,10 @@
     "screensaver": {
         "enabled": true,
         "timeout_seconds": 300
+    },
+    "audio": {
+        "geral_habilitado": true,
+        "musica_habilitada": true,
+        "sfx_habilitado": true
     }
 }

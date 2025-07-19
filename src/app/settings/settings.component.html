@@ -1,0 +1,25 @@
+<div id="settings-container">
+    <div class="settings-box">
+        <h1>[ Configurações de Áudio ]</h1>
+
+        <div class="settings-options">
+            <div class="option">
+                <input type="checkbox" id="geral" [(ngModel)]="geralHabilitado">
+                <label for="geral">Habilitar Áudio Geral</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="musica" [(ngModel)]="musicaHabilitada" [disabled]="!geralHabilitado">
+                <label for="musica">Habilitar Músicas</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="sfx" [(ngModel)]="sfxHabilitado" [disabled]="!geralHabilitado">
+                <label for="sfx">Habilitar Efeitos Sonoros (SFX)</label>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button (click)="salvarConfiguracoes()">Salvar e Voltar</button>
+            <button (click)="voltar()">Voltar</button>
+        </div>
+    </div>
+</div>
